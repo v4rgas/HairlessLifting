@@ -1,7 +1,7 @@
 import { Button, Container, Stack } from "@mui/material"
 import { useEffect, useState } from "react"
 
-import WorkoutSelectionTable from "./WorkoutSelectionTable"
+import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 
 export default function MesoCreator() {
     const [workoutDays, setWorkoutDays] = useState([])

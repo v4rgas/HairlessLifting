@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 import { CssBaseline } from '@mui/material';
-import MesoCreator from './MesoCreator.jsx';
+import MesoCreator from './MesoCreator/MesoCreator.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
