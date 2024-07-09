@@ -10,7 +10,8 @@ export default function MesoCreator() {
         <Container sx={{ py: 5 }}>
             <Stack spacing={5}>
                 {days.map(day => <ExcerSelectionTable name={day.id} key={day.id} />)}
-                <Button variant='contained' fullWidth onClick={() => { setDays([...days, { id: dayId }]); setDayId(dayId => dayId + 1) }}>Add day</Button>
+                <Button variant='contained' color="secondary" fullWidth onClick={() => { setDays([...days, { id: dayId }]); setDayId(dayId => dayId + 1) }}>Add day</Button>
+                <Button variant='contained' fullWidth >Create Meso</Button>
             </Stack>
 
         </Container>
