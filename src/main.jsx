@@ -5,24 +5,31 @@ import '@fontsource/roboto/700.css';
 
 import {
   RouterProvider,
-  createBrowserRouter,
+  createBrowserRouter
 } from "react-router-dom";
 
-import { CssBaseline } from '@mui/material';
+import App from './App.jsx';
 import MesoCreator from './MesoCreator/MesoCreator.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MesoCreator />,
+
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <MesoCreator />
+      }
+    ]
   },
 ]);
 
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CssBaseline />
     <RouterProvider router={router} />
   </React.StrictMode>
 )

@@ -1,4 +1,4 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Button, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
@@ -17,7 +17,8 @@ function WorkoutSelectionTable({ name, onSelectionChange }) {
 
   return (
     <TableContainer component={Paper}>
-      <Typography variant='h3'>Day {name}</Typography>
+
+      <Typography variant='h5' sx={{ m: 1, textAlign: "center" }}>Day {name}</Typography>
       <Table style={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
