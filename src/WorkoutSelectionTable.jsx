@@ -4,16 +4,16 @@ import { useEffect, useState } from 'react'
 import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
 
 function WorkoutSelectionTable({ name, onSelectionChange }) {
-  const [selection, setSelection] = useState({})
   const [workouts, setWorkouts] = useState([])
 
-  useEffect(() => {
-    setSelection(selection => ({ ...selection, id: name }))
-  }, [name])
+  useEffect(() => { onSelectionChange(workouts); }, [workouts, onSelectionChange])
 
-  const updateSelection = () => {
-    onSelectionChange(selection)
-  }
+  const handleSelectionChange = (id, updatedWorkout) => {
+    setWorkouts(workouts =>
+      workouts.map(workout => (workout.id === id ? { ...workout, ...updatedWorkout } : workout))
+    );
+
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -24,23 +24,21 @@ function WorkoutSelectionTable({ name, onSelectionChange }) {
             <TableCell>
               <Typography variant="h6">Primary Muscle</Typography>
             </TableCell>
-            {/* <TableCell>
-              <Typography variant="h6">Type</Typography>
-            </TableCell> */}
+
             <TableCell>
               <Typography variant="h6">Excercise</Typography>
             </TableCell>
-            {/* <TableCell>
-              <Typography variant="h6">Sets</Typography>
-            </TableCell> */}
+
           </TableRow>
         </TableHead>
 
         <TableBody>
-          {workouts.map(excercise => <WorkoutSelectionTableRow key={excercise.id} onSelectionChange={console.log} />)}
+          {workouts.map(workout => <WorkoutSelectionTableRow
+            key={workout.id}
+            onSelectionChange={updatedWorkout => handleSelectionChange(workout.id, updatedWorkout)} />)}
         </TableBody>
       </Table>
-      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, {}]) }}>Add row</Button>
+      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add row</Button>
 
     </TableContainer>
   )
