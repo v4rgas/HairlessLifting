@@ -4,20 +4,20 @@ import ExcerSelector from "./ExcerSelector"
 import MuscleSelector from "./MuscleSelector"
 import { useState } from "react"
 
-export default function WorkoutSelectionTableRow({ onSelectionChange }) {
-    const [currentSelectedMuscle, setCurrentSelectedMuscle] = useState({})
+export default function WorkoutSelectionTableRow({ onSelectionChange, defaultMuscle = {}, defaultExcer = {} }) {
+    const [currentSelectedMuscle, setCurrentSelectedMuscle] = useState(defaultMuscle)
 
     return (
         <TableRow>
             <TableCell>
-                <MuscleSelector handleChange={(e) => {
+                <MuscleSelector defaultMuscle={defaultMuscle} handleChange={(e) => {
                     setCurrentSelectedMuscle(e.target.value)
                     onSelectionChange({ muscle: e.target.value, excer: null })
                 }} />
             </TableCell>
 
             <TableCell>
-                <ExcerSelector muscleId={currentSelectedMuscle.id} handleChange={(e) => {
+                <ExcerSelector defaultExcer={defaultExcer} muscleId={currentSelectedMuscle.id} handleChange={(e) => {
                     onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value })
                 }} />
             </TableCell>

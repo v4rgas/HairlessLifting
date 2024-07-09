@@ -9,9 +9,10 @@ import {
 } from "react-router-dom";
 
 import App from './App.jsx';
-import MesoCreator from './MesoCreator/MesoCreator.jsx';
+import Home from './Home/Home.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import SplitCreator from './SplitCreator/SplitCreator.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <MesoCreator />
+        element: <Home />
+      },
+      {
+        path: '/create',
+        element: <SplitCreator />
       }
     ]
   },

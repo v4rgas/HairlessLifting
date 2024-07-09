@@ -4,8 +4,11 @@ import { useEffect, useState } from "react"
 import MesoLengthSelector from "./MesoLengthSelector"
 import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 
-export default function MesoCreator() {
-    const [workoutDays, setWorkoutDays] = useState([])
+export default function SplitCreator() {
+    const [workoutDays, setWorkoutDays] = useState([
+        { id: 'A', workouts: [{ id: Date.now(), muscle: { id: 1 }, excer: { id: 1 } }] },
+        { id: 'B', workouts: [{ id: Date.now(), muscle: { id: 2 }, excer: { id: 3 } }] },
+    ])
     const [workoutDayId, setWorkoutDayId] = useState(65)
 
     useEffect(() => { console.log(workoutDays) }, [workoutDays])
@@ -22,7 +25,7 @@ export default function MesoCreator() {
 
                 <MesoLengthSelector></MesoLengthSelector>
                 {workoutDays.map(day =>
-                    <WorkoutSelectionTable name={day.id} key={day.id} onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)} />
+                    <WorkoutSelectionTable defaultWorkouts={day.workouts} name={day.id} key={day.id} onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)} />
                 )}
 
 
@@ -30,7 +33,9 @@ export default function MesoCreator() {
                 <Button variant='contained' color="secondary" fullWidth onClick={() => {
                     setWorkoutDays(workoutDays => [...workoutDays, { id: String.fromCharCode(workoutDayId), workouts: [] }])
                     setWorkoutDayId(dayId => dayId + 1)
-                }}>Add day</Button>
+                }}>
+                    Add day
+                </Button>
 
                 <Button variant='contained' fullWidth >Create Meso</Button>
             </Stack>
