@@ -5,7 +5,7 @@ import MuscleSelector from "./MuscleSelector"
 import { useState } from "react"
 
 export default function WorkoutSelectionTableRow({ onSelectionChange }) {
-    const [currentSelectedMuscle, setCurrentSelectedMuscle] = useState(null)
+    const [currentSelectedMuscle, setCurrentSelectedMuscle] = useState({})
 
     return (
         <TableRow>
@@ -17,7 +17,7 @@ export default function WorkoutSelectionTableRow({ onSelectionChange }) {
             </TableCell>
 
             <TableCell>
-                <ExcerSelector muscleId={currentSelectedMuscle} handleChange={(e) => {
+                <ExcerSelector muscleId={currentSelectedMuscle.id} handleChange={(e) => {
                     onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value })
                 }} />
             </TableCell>

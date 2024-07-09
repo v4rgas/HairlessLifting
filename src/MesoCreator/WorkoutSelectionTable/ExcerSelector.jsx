@@ -22,7 +22,7 @@ export default function ExcerSelector({ handleChange, muscleId }) {
                 handleChange(e)
             }}
         >
-            {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise.id}>{excercise.name}</MenuItem>)}
+            {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise}>{excercise.name}</MenuItem>)}
         </Select>
     </FormControl >)
 

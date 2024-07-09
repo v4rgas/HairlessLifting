@@ -2,7 +2,6 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { useEffect, useState } from 'react';
 
 import useBackendApi from '../../useBackendApi';
-import useYoutubeScrapper from '../../scraperExcercise';
 
 export default function MuscleSelector({ handleChange }) {
     const [muscle, setMuscle] = useState('');
@@ -25,7 +24,7 @@ export default function MuscleSelector({ handleChange }) {
                 handleChange(e)
             }}
         >
-            {muscles.map(muscle => <MenuItem key={muscle.id} value={muscle.id}>{muscle.name}</MenuItem>)}
+            {muscles.map(muscle => <MenuItem key={muscle.id} value={muscle}>{muscle.name}</MenuItem>)}
         </Select>
     </FormControl >)
 
