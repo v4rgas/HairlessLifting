@@ -1,11 +1,11 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
-import ExcerSelectionTableRow from './ExcerSelectionTableRow'
+import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
 
-function ExcerSelectionTable({ name, onSelectionChange }) {
+function WorkoutSelectionTable({ name, onSelectionChange }) {
   const [selection, setSelection] = useState({})
-  const [excercises, setExcercises] = useState([])
+  const [workouts, setWorkouts] = useState([])
 
   useEffect(() => {
     setSelection(selection => ({ ...selection, id: name }))
@@ -18,7 +18,7 @@ function ExcerSelectionTable({ name, onSelectionChange }) {
   return (
     <TableContainer component={Paper}>
       <Typography variant='h3'>Day {name}</Typography>
-      <Table>
+      <Table style={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
             <TableCell>
@@ -37,13 +37,13 @@ function ExcerSelectionTable({ name, onSelectionChange }) {
         </TableHead>
 
         <TableBody>
-          {excercises.map(excercise => <ExcerSelectionTableRow key={excercise.id} />)}
+          {workouts.map(excercise => <WorkoutSelectionTableRow key={excercise.id} onSelectionChange={console.log} />)}
         </TableBody>
       </Table>
-      <Button variant='text' fullWidth onClick={() => { setExcercises(excercises => [...excercises, {}]) }}>Add row</Button>
+      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, {}]) }}>Add row</Button>
 
     </TableContainer>
   )
 }
 
-export default ExcerSelectionTable
+export default WorkoutSelectionTable
