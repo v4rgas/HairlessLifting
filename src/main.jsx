@@ -8,15 +8,15 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
-import App from './App.jsx'
 import { CssBaseline } from '@mui/material';
+import MesoCreator from './MesoCreator.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MesoCreator />,
   },
 ]);
 

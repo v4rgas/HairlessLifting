@@ -1,9 +1,15 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { useEffect, useState } from 'react';
 
-import { useState } from 'react';
+import useBackendApi from './useBackendApi';
 
-export default function ExcerSelector({ handleChange }) {
+export default function ExcerSelector({ handleChange, muscleId }) {
     const [excercise, setExcercise] = useState('');
+    const [excercises, setExcercises] = useState([]);
+    const { getExcercises } = useBackendApi();
+    useEffect(() => {
+        getExcercises(muscleId).then(setExcercises)
+    }, [muscleId])
     return (<FormControl fullWidth>
         <InputLabel id="excercise-select">Excercise</InputLabel>
         <Select
@@ -16,9 +22,7 @@ export default function ExcerSelector({ handleChange }) {
                 handleChange(e)
             }}
         >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise.id}>{excercise.name}</MenuItem>)}
         </Select>
     </FormControl >)
 
