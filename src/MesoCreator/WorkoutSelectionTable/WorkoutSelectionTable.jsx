@@ -16,9 +16,11 @@ function WorkoutSelectionTable({ name, onSelectionChange }) {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={5}>
 
-      <Typography variant='h5' sx={{ p: 1, textAlign: "center", backgroundColor: "info.main" }}>Day {name}</Typography>
+      <Paper elevation={3}>
+        <Typography variant='h5' sx={{ p: 1, textAlign: "center" }}>Day {name}</Typography>
+      </Paper>
       <Table style={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
@@ -40,7 +42,6 @@ function WorkoutSelectionTable({ name, onSelectionChange }) {
         </TableBody>
       </Table>
       <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add excercise</Button>
-
     </TableContainer>
   )
 }
