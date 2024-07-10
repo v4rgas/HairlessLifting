@@ -4,14 +4,12 @@ export default function useBackendApi() {
 
     return {
         getMuscles: async () => {
-            console.log(exercises)
             return Object.keys(exercises).map((muscle, index) => {
                 return { id: muscle, name: muscle }
             })
 
         },
         getExcercises: async (muscleId) => {
-            console.log(exercises[muscleId])
             return exercises[muscleId].map(({ name, link }, index) => {
                 return { id: index, name, muscleId: muscleId, link }
             })
