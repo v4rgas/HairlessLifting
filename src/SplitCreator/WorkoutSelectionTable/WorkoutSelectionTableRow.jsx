@@ -21,7 +21,6 @@ export default function WorkoutSelectionTableRow({ onSelectionChange, defaultMus
                     onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value })
                 }} />
             </TableCell>
-
         </TableRow>
     )
 }

@@ -1,18 +1,20 @@
+import exercises from './assets/exercises.json'
+
 export default function useBackendApi() {
+
     return {
         getMuscles: async () => {
-            return [
-                { id: 1, name: 'Chest' },
-                { id: 2, name: 'Back' },
-            ]
+            console.log(exercises)
+            return Object.keys(exercises).map((muscle, index) => {
+                return { id: muscle, name: muscle }
+            })
+
         },
         getExcercises: async (muscleId) => {
-            return [
-                { id: 1, name: 'Bench Press', muscleId: 1 },
-                { id: 2, name: 'Push Ups', muscleId: 1 },
-                { id: 3, name: 'Pull Ups', muscleId: 2 },
-                { id: 4, name: 'Deadlift', muscleId: 2 },
-            ].filter(excercise => excercise.muscleId === muscleId)
+            console.log(exercises[muscleId])
+            return exercises[muscleId].map(({ name, link }, index) => {
+                return { id: index, name, muscleId: muscleId, link }
+            })
         },
         getSplits: async () => {
             return [

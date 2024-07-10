@@ -1,6 +1,7 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import useBackendApi from '../../useBackendApi';
 
 export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) {
@@ -22,20 +23,30 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) 
 
 
 
-    return (<FormControl fullWidth>
-        <InputLabel id="excercise-select">Excercise</InputLabel>
-        <Select
-            labelId="excercise-select"
-            id="excercise-selector"
-            value={excercise}
-            label="Excercise"
-            onChange={(e) => {
-                setExcercise(e.target.value)
-                handleChange(e)
-            }}
-        >
-            {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise}>{excercise.name}</MenuItem>)}
-        </Select>
-    </FormControl >)
+    return (
+        <Stack flexDirection={"row"} alignItems={"center"}>
+            <FormControl fullWidth>
+                <InputLabel id="excercise-select">Excercise</InputLabel>
+                <Select
+                    labelId="excercise-select"
+                    id="excercise-selector"
+                    value={excercise}
+                    label="Excercise"
+                    onChange={(e) => {
+                        setExcercise(e.target.value)
+                        handleChange(e)
+                    }}
+                >
+                    {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise}>{excercise.name}</MenuItem>)}
+                </Select>
+
+            </FormControl >
+            <IconButton href={excercise.link} target="_blank">
+                <YouTubeIcon />
+            </IconButton>
+
+        </Stack>
+    )
+
 
 }

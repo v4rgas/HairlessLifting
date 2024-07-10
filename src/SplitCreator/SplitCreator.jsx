@@ -5,10 +5,7 @@ import MesoLengthSelector from "./MesoLengthSelector"
 import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 
 export default function SplitCreator() {
-    const [workoutDays, setWorkoutDays] = useState([
-        { id: 'A', workouts: [{ id: Date.now(), muscle: { id: 1 }, excer: { id: 1 } }] },
-        { id: 'B', workouts: [{ id: Date.now(), muscle: { id: 2 }, excer: { id: 3 } }] },
-    ])
+    const [workoutDays, setWorkoutDays] = useState([])
     const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
 
     useEffect(() => { console.log(workoutDays) }, [workoutDays])
