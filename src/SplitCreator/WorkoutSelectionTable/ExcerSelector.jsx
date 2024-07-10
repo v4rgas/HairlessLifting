@@ -41,9 +41,9 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) 
                 </Select>
 
             </FormControl >
-            <IconButton href={excercise.link} target="_blank">
+            {excercise.link && <IconButton href={excercise.link} target="_blank" size='small'>
                 <YouTubeIcon />
-            </IconButton>
+            </IconButton>}
 
         </Stack>
     )
