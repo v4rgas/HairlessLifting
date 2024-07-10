@@ -11,11 +11,12 @@ export default function Navbar() {
     const [darkMode, setDarkMode] = useAtom(darkModeAtom)
     const navigate = useNavigate()
     return (
-        <AppBar position="static">
+        <AppBar position="static" back>
             <Toolbar>
                 <IconButton onClick={() => navigate("/")}>
                     <HomeIcon />
                 </IconButton>
+
                 <Typography variant="h6" sx={{ mx: 'auto' }} noWrap>pelao-rqlo</Typography>
                 {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
                 <Switch onChange={() => setDarkMode(!darkMode)} checked={darkMode}></Switch>
