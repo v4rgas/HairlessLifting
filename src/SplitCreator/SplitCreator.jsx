@@ -9,7 +9,7 @@ export default function SplitCreator() {
         { id: 'A', workouts: [{ id: Date.now(), muscle: { id: 1 }, excer: { id: 1 } }] },
         { id: 'B', workouts: [{ id: Date.now(), muscle: { id: 2 }, excer: { id: 3 } }] },
     ])
-    const [workoutDayId, setWorkoutDayId] = useState(65)
+    const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
 
     useEffect(() => { console.log(workoutDays) }, [workoutDays])
 
