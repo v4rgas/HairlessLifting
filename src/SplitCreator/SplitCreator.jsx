@@ -3,10 +3,15 @@ import { useEffect, useState } from "react"
 
 import MesoLengthSelector from "./MesoLengthSelector"
 import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
+import useStorage from "../useStorage"
+import { useAtom } from "jotai"
+import { splitsAtom } from "../atoms"
 
 export default function SplitCreator() {
     const [workoutDays, setWorkoutDays] = useState([])
     const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
+
+    const [splits, setSplits] = useAtom(splitsAtom)
 
     useEffect(() => { console.log(workoutDays) }, [workoutDays])
 
@@ -34,7 +39,7 @@ export default function SplitCreator() {
                     Add day
                 </Button>
 
-                <Button variant='contained' fullWidth >Create Meso</Button>
+                <Button variant='contained' fullWidth onClick={()=> setSplits([...splits, workoutDays])}>Create Meso</Button>
             </Stack>
 
         </Container >

@@ -13,6 +13,7 @@ import Home from './Home/Home.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import SplitCreator from './SplitCreator/SplitCreator.jsx';
+import SavedSplits from './SavedSplits.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/create',
         element: <SplitCreator />
+      },
+      {
+        path: "/saved",
+        element: <SavedSplits/>
       }
     ]
   },
