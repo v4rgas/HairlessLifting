@@ -1,4 +1,4 @@
-import { Button, Container, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
+import { Button, Container, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 
 import MesoLengthSelector from "./MesoLengthSelector"
@@ -8,6 +8,7 @@ import { useAtom } from "jotai"
 import { splitsAtom } from "../atoms"
 
 export default function SplitCreator() {
+    const [name, setName] = useState(Date.now().toString())
     const [workoutDays, setWorkoutDays] = useState([])
     const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
 
@@ -22,6 +23,8 @@ export default function SplitCreator() {
     }
     return (
         <Container sx={{ py: 5 }}>
+            
+            <TextField value={name} onChange={(e)=>setName(e.target.value)} fullWidth></TextField>
 
             <Stack spacing={5}>
 
@@ -39,7 +42,9 @@ export default function SplitCreator() {
                     Add day
                 </Button>
 
-                <Button variant='contained' fullWidth onClick={()=> setSplits([...splits, workoutDays])}>Create Meso</Button>
+
+
+                <Button variant='contained' fullWidth onClick={()=> setSplits([...splits, {name, workoutDays}])}>Create Meso</Button>
             </Stack>
 
         </Container >

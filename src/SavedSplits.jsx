@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { Button, Container, Stack, Typography } from "@mui/material"
 import useStorage from "./useStorage"
 import { useEffect, useState } from "react"
 import { useAtomValue } from "jotai"
@@ -10,10 +10,17 @@ export default function SavedSplits(){
     useEffect(()=>console.log(splits), [])
 
     return (
-        <Typography>
 
-            {splits.forEach(()=><Typography>Split</Typography>) }
-        
-        </Typography>
+        <Container>
+            <Stack spacing={6}>
+                <Typography variant="h3">
+                    Saved splits
+                </Typography>
+                {splits.map((split)=><Button variant="contained">{split.name}</Button>) }
+            </Stack>
+        </Container>
+       
+      
+            
     )
 }
