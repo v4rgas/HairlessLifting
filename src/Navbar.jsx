@@ -4,7 +4,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import HomeIcon from '@mui/icons-material/Home';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
-import { darkModeAtom } from "./atoms";
+import { darkModeAtom } from "./utils/atoms";
 import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 

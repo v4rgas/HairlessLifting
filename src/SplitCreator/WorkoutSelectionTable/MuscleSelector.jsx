@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { useEffect, useState } from 'react';
 
-import useBackendApi from '../../useBackendApi';
+import useBackendApi from '../../utils/useBackendApi';
 
 export default function MuscleSelector({ handleChange, defaultMuscle = {} }) {
     const [muscle, setMuscle] = useState({})

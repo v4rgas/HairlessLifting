@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider, createTheme, useMediaQuery } from '@mui/mat
 
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
-import { darkModeAtom } from './atoms';
+import { darkModeAtom } from './utils/atoms';
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
 

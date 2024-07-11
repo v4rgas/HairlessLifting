@@ -1,4 +1,4 @@
-import exercises from './assets/exercises.json'
+import exercises from '../assets/exercises.json'
 
 export default function useBackendApi() {
 

@@ -1,11 +1,13 @@
 import { Button, Container, Stack, Typography } from "@mui/material"
-import useStorage from "./useStorage"
+import useStorage from "../utils/useStorage"
 import { useEffect, useState } from "react"
-import { useAtomValue } from "jotai"
-import { splitsAtom } from "./atoms"
+import { useNavigate } from "react-router-dom"
 
 export default function SavedSplits(){
-    const splits = useAtomValue(splitsAtom)
+    const { getSplits } = useStorage()
+    const splits = getSplits()
+
+    const navigate = useNavigate()
 
     useEffect(()=>console.log(splits), [])
 
@@ -16,7 +18,7 @@ export default function SavedSplits(){
                 <Typography variant="h3">
                     Saved splits
                 </Typography>
-                {splits.map((split)=><Button variant="contained">{split.name}</Button>) }
+                {splits.map((split)=><Button onClick={()=>navigate("/tracker/"+split.id)} variant="contained">{split.splitName}</Button>) }
             </Stack>
         </Container>
        

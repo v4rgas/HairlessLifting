@@ -2,7 +2,7 @@ import { Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } 
 import { useEffect, useState } from 'react';
 
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import useBackendApi from '../../useBackendApi';
+import useBackendApi from '../../utils/useBackendApi';
 
 export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) {
     const [excercise, setExcercise] = useState({});
