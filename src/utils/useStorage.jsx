@@ -10,6 +10,11 @@ export default function useStorage(){
         getSplits: () => {
             return splits
         },
+        deleteSplit: (splitId) => {
+            const newSplits = {...splits}
+            delete newSplits[splitId]
+            setSplits(newSplits)
+        }
         
     }
 }
