@@ -13,6 +13,7 @@ export default function SplitViewer() {
     return (
         <Container>
             <Stack spacing={5}>
+                <Typography variant="h3">{split?.splitName}</Typography>
                 {split?.workoutDays?.map((workoutDay, index) => <WorkoutDayViewer key={index} workoutDay={workoutDay} />)}
                 <GoBackButton/>
             </Stack>
