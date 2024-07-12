@@ -18,7 +18,7 @@ export default function WorkoutSelectionTableRow({ onSelectionChange, defaultMus
 
             <TableCell>
                 <ExcerSelector defaultExcer={defaultExcer} muscleId={currentSelectedMuscle.id} handleChange={(e) => {
-                    onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value })
+                    onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value})
                 }} />
             </TableCell>
         </TableRow>

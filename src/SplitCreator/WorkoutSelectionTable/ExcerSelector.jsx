@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import useBackendApi from '../../utils/useBackendApi';
+import PlayVideoButton from '../../PlayVideoButton';
+
 
 export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) {
     const [excercise, setExcercise] = useState({});
@@ -41,9 +43,7 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) 
                 </Select>
 
             </FormControl >
-            {excercise.link && <IconButton href={excercise.link} target="_blank" size='small'>
-                <YouTubeIcon />
-            </IconButton>}
+            {excercise.link && <PlayVideoButton videoUrl={excercise.link}  />}
 
         </Stack>
     )

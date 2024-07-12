@@ -15,6 +15,7 @@ import ReactDOM from 'react-dom/client'
 import SplitCreator from './SplitCreator/SplitCreator.jsx';
 import SavedSplits from './SavedSplits/SavedSplits.jsx';
 import SplitTracker from './SplitTracker/SplitTracker.jsx';
+import SplitViewer from './SplitViewer.jsx/SplitVIewer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/saved",
         element: <SavedSplits/>
+      },
+      {
+        path: "/split/:splitId",
+        element: <SplitViewer/>
       },
       {
         path: "/tracker/:splitId",

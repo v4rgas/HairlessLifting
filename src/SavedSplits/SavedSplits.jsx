@@ -18,7 +18,7 @@ export default function SavedSplits(){
                 <Typography variant="h3">
                     Saved splits
                 </Typography>
-                {splits.map((split)=><Button onClick={()=>navigate("/tracker/"+split.id)} variant="contained">{split.splitName}</Button>) }
+                {Object.values(splits).map((split)=><Button onClick={()=>navigate("/split/"+split.id)} variant="contained">{split.splitName}</Button>) }
             </Stack>
         </Container>
        
