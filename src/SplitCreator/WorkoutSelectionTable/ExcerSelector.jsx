@@ -1,4 +1,4 @@
-import { Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material'
+import { Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -25,7 +25,8 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer = {
 
 
     return (
-        <Stack flexDirection={"row"} alignItems={"center"}>
+        <Grid container spacing={2}>
+            <Grid item xs={10}>
             <FormControl fullWidth>
                 <InputLabel id="excercise-select">Excercise</InputLabel>
                 <Select
@@ -43,9 +44,13 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer = {
                 </Select>
 
             </FormControl >
-            {excercise.link && <PlayVideoButton videoUrl={excercise.link}  />}
+            </Grid>
 
-        </Stack>
+            <Grid xs={2} item alignContent={"center"}>
+            {excercise.link && <PlayVideoButton videoUrl={excercise.link}  />}
+            </Grid>
+
+        </Grid>
     )
 
 

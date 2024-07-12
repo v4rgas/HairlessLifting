@@ -19,7 +19,7 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
     <TableContainer component={Paper} elevation={5}>
       <Typography variant='h5' sx={{ p: 1, textAlign: "center" }}>{name}</Typography>
       <Divider />
-      <Table style={{ tableLayout: 'fixed' }}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell>
