@@ -17,7 +17,7 @@ export default function SplitViewer() {
     return (
         <Container>
             <Grid container spacing={5}>
-                <Grid xs={11} item>
+                <Grid xs={10} item>
                     <Typography variant="h3">{split?.splitName}</Typography>
                 </Grid>
 
