@@ -29,13 +29,9 @@ export default function SplitCreator() {
             <TextField value={splitName} onChange={(e)=>setSplitName(e.target.value)} fullWidth></TextField>
 
             <Stack spacing={5}>
-
-                <MesoLengthSelector></MesoLengthSelector>
                 {workoutDays.map(day =>
                     <WorkoutSelectionTable defaultWorkouts={day.workouts} name={day.id} key={day.id} onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)} />
                 )}
-
-
 
                 <Button variant='contained' color="secondary" fullWidth onClick={() => {
                     setWorkoutDays(workoutDays => [...workoutDays, { id: String.fromCharCode(workoutDayId), workouts: [] }])
@@ -50,7 +46,7 @@ export default function SplitCreator() {
                     saveSplit({id: Date.now(),splitName, workoutDays})
                     navigate("/saved")
                     }}>
-                        Create Meso
+                        Create split
                 </Button>
             </Stack>
 
