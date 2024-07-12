@@ -1,15 +1,14 @@
 import { Button, Container, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 
-import MesoLengthSelector from "./MesoLengthSelector"
 import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 import useStorage from "../utils/useStorage"
-import { useAtom } from "jotai"
-import { splitsAtom } from "../utils/atoms"
 import { useNavigate } from "react-router-dom"
 
+import splitNames from "../assets/funnySplitNames.json"
+
 export default function SplitCreator() {
-    const [splitName, setSplitName] = useState(Date.now().toString())
+    const [splitName, setSplitName] = useState(splitNames[Math.floor(Math.random() * splitNames.length)])
     const [workoutDays, setWorkoutDays] = useState([])
     const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
 
@@ -26,9 +25,11 @@ export default function SplitCreator() {
     return (
         <Container sx={{ py: 5 }}>
             
-            <TextField value={splitName} onChange={(e)=>setSplitName(e.target.value)} fullWidth></TextField>
+            
 
             <Stack spacing={5}>
+                <TextField value={splitName} onChange={(e)=>setSplitName(e.target.value)} fullWidth></TextField>
+                
                 {workoutDays.map(day =>
                     <WorkoutSelectionTable defaultWorkouts={day.workouts} name={day.id} key={day.id} onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)} />
                 )}
