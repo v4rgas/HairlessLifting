@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <SplitViewer/>
       },
       {
-        path: "/tracker/:splitId",
+        path: "/tracker",
         element: <SplitTracker/>
       },
       
