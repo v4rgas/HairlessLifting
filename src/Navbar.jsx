@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Switch, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Divider, IconButton, Switch, Toolbar, Typography } from "@mui/material";
 
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import HomeIcon from '@mui/icons-material/Home';
@@ -16,7 +16,7 @@ export default function Navbar() {
         <AppBar position="static" back>
             <Toolbar>
 
-
+            <Box flexGrow={1}>
                 <IconButton onClick={() => navigate("/")}>
                     <HomeIcon />
                 </IconButton>
@@ -28,11 +28,15 @@ export default function Navbar() {
                 <IconButton onClick={() => navigate("/tracker")}>
                     <EditNoteIcon />
                 </IconButton>
+            </Box>
 
+                <Typography variant="h6" noWrap flexGrow={1}>pelao-rqlo</Typography>
 
-                <Typography variant="h6" sx={{ mx: 'auto' }} noWrap>pelao-rqlo</Typography>
+            <Box>
                 {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
                 <Switch onChange={() => setDarkMode(!darkMode)} checked={darkMode}></Switch>
+            </Box>
+                
             </Toolbar>
         </AppBar >
     )
