@@ -23,7 +23,7 @@ export default function WorkoutSelectionTableRow({ onSelectionChange, onDelete, 
                 }} />
             </TableCell>
 
-            <TableCell>
+            <TableCell align="center">
                 <DeleteButton onClick={onDelete} />
             </TableCell>
         </TableRow>

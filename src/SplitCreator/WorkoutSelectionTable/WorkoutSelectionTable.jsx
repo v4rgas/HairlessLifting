@@ -29,12 +29,6 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
             <TableCell>
               <Typography variant="h6">Excercise</Typography>
             </TableCell>
-
-            <TableCell>
-              <Typography variant="h6">Delete</Typography>
-            </TableCell>
-            
-
           </TableRow>
         </TableHead>
 
