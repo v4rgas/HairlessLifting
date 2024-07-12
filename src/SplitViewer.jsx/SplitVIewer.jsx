@@ -17,20 +17,25 @@ export default function SplitViewer() {
     return (
         <Container>
             <Grid container spacing={5}>
-                <Grid xs={10} item>
+                <Grid xs={10} md={10} item>
                     <Typography variant="h3">{split?.splitName}</Typography>
                 </Grid>
 
-                <Grid xs={1} item>
+                <Grid xs={2} md={2} alignContent={"center"} item container>
+                    <Grid xs={12} md={6} item>
                     <DeleteButton onClick={()=>{
                         
                         deleteSplit(splitId);
                         navigate("/saved")
-                    }}></DeleteButton>
-                </Grid>
+                    }}
+                    sx={{mx: "auto"}}
+                    ></DeleteButton>
+                    </Grid>
 
-                <Grid xs={1} item>
-                    <EditButton onClick={()=>navigate("/create", {state: {initialSplit: split}})}></EditButton>                    
+                    <Grid xs={12} md={6} item>
+                    <EditButton onClick={()=>navigate("/create", {state: {initialSplit: split}})}>
+                        </EditButton>
+                    </Grid>  
                 </Grid>
 
                 {split?.workoutDays?.map((workoutDay, index) => 

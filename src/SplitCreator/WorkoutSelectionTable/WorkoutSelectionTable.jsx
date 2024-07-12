@@ -30,6 +30,11 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
               <Typography variant="h6">Excercise</Typography>
             </TableCell>
 
+            <TableCell>
+              <Typography variant="h6">Delete</Typography>
+            </TableCell>
+            
+
           </TableRow>
         </TableHead>
 
@@ -37,6 +42,7 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
           {workouts.map(workout => <WorkoutSelectionTableRow
             key={workout.id}
             onSelectionChange={updatedWorkout => handleSelectionChange(workout.id, updatedWorkout)}
+            onDelete={() => setWorkouts(workouts => workouts.filter(w => w.id !== workout.id))}
             defaultMuscle={workout.muscle}
             defaultExcer={workout.excer}
           />)}
