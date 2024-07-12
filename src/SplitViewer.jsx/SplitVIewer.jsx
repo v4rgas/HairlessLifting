@@ -12,7 +12,7 @@ export default function SplitViewer() {
 
     return (
         <Container>
-            <Stack spacing={6}>
+            <Stack spacing={5}>
                 {split?.workoutDays?.map((workoutDay, index) => <WorkoutDayViewer key={index} workoutDay={workoutDay} />)}
                 <GoBackButton/>
             </Stack>

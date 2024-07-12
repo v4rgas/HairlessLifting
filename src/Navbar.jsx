@@ -13,7 +13,7 @@ export default function Navbar() {
     const [darkMode, setDarkMode] = useAtom(darkModeAtom)
     const navigate = useNavigate()
     return (
-        <AppBar position="static" back>
+        <AppBar position="static" sx={{mb: 5}}>
             <Toolbar>
 
             <Box flexGrow={1}>

@@ -14,7 +14,7 @@ export default function SavedSplits(){
     return (
 
         <Container>
-            <Stack spacing={6}>
+            <Stack spacing={5}>
                 <Typography variant="h3">
                     Saved splits
                 </Typography>
