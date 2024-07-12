@@ -4,6 +4,7 @@ import useStorage from "../utils/useStorage";
 import GoBackButton from "../GoBackButton";
 import WorkoutDayViewer from "./WorkoutDayViewer";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
 
 export default function SplitViewer() {
     const { splitId } = useParams();
@@ -26,6 +27,10 @@ export default function SplitViewer() {
                         deleteSplit(splitId);
                         navigate("/saved")
                     }}></DeleteButton>
+                </Grid>
+
+                <Grid xs={1} item>
+                    <EditButton onClick={()=>navigate("/create", {state: {initialSplit: split}})}></EditButton>                    
                 </Grid>
 
                 {split?.workoutDays?.map((workoutDay, index) => 

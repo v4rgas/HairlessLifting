@@ -3,13 +3,17 @@ import { useEffect, useState } from "react"
 
 import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 import useStorage from "../utils/useStorage"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 import splitNames from "../assets/funnySplitNames.json"
 
 export default function SplitCreator() {
-    const [splitName, setSplitName] = useState(splitNames[Math.floor(Math.random() * splitNames.length)])
-    const [workoutDays, setWorkoutDays] = useState([])
+    const location = useLocation()
+    const initialSplit = location.state?.initialSplit || {}
+    const [splitName, setSplitName] = useState(
+        initialSplit.splitName || splitNames[Math.floor(Math.random() * splitNames.length)]
+    )
+    const [workoutDays, setWorkoutDays] = useState(initialSplit.workoutDays || [])
     const [workoutDayId, setWorkoutDayId] = useState(65 + workoutDays.length)
 
     const navigate = useNavigate()
@@ -18,6 +22,7 @@ export default function SplitCreator() {
     useEffect(() => { console.log(workoutDays) }, [workoutDays])
 
     const handleSelectionChange = (id, updatedWorkouts) => {
+        console.log(updatedWorkouts, id, "updatedWorkouts")
         setWorkoutDays(workoutDays =>
             workoutDays.map(workoutDay => (workoutDay.id === id ? { ...workoutDay, workouts: updatedWorkouts } : workoutDay))
         );
@@ -43,8 +48,8 @@ export default function SplitCreator() {
 
 
 
-                <Button variant='contained' fullWidth onClick={()=> {
-                    saveSplit({id: Date.now(),splitName, workoutDays})
+                <Button variant='contained' fullWidth onClick={()=> {                    
+                    saveSplit({id: initialSplit.id || Date.now(), splitName, workoutDays})
                     navigate("/saved")
                     }}>
                         Create split

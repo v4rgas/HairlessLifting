@@ -4,20 +4,18 @@ import { useEffect, useState } from 'react';
 import useBackendApi from '../../utils/useBackendApi';
 
 export default function MuscleSelector({ handleChange, defaultMuscle = {} }) {
-    const [muscle, setMuscle] = useState({})
-    const [muscles, setMuscles] = useState([]);
+    const [muscle, setMuscle] = useState(defaultMuscle)
+    const [muscles, setMuscles] = useState([defaultMuscle]);
     const { getMuscles } = useBackendApi();
 
     useEffect(() => {
-        getMuscles().then(setMuscles)
+        const fetchMuscles = async () => {
+            const muscles = await getMuscles()
+            setMuscles(muscles)
+            setMuscle(muscles.find(e => e.id === defaultMuscle?.id) || {})
+        }
+        fetchMuscles()
     }, [])
-
-    useEffect(() => {
-        if (muscles.length == 0) return
-        if (defaultMuscle?.id && !muscle.id)
-            setMuscle(muscles.find(e => e.id === defaultMuscle.id) || {})
-
-    }, [defaultMuscle, muscles])
 
 
     return (<FormControl fullWidth>

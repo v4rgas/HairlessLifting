@@ -6,22 +6,21 @@ import useBackendApi from '../../utils/useBackendApi';
 import PlayVideoButton from '../../PlayVideoButton';
 
 
-export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) {
-    const [excercise, setExcercise] = useState({});
-    const [excercises, setExcercises] = useState([]);
+export default function ExcerSelector({ handleChange, muscleId, defaultExcer = {} }) {
+    const [excercise, setExcercise] = useState(defaultExcer);
+    const [excercises, setExcercises] = useState([defaultExcer]);
 
     const { getExcercises } = useBackendApi();
 
     useEffect(() => {
-        getExcercises(muscleId).then(setExcercises)
+        const fetchExcercises = async () => {
+            const excercises = await getExcercises(muscleId)
+            setExcercises(excercises)
+            setExcercise(excercises.find(e => e.id === defaultExcer?.id) || {})
+        }
+        fetchExcercises()
     }, [muscleId])
 
-    useEffect(() => {
-        if (excercises.length == 0) return
-        if (defaultExcer?.id && !excercise.id)
-            setExcercise(excercises.find(e => e.id === defaultExcer.id) || {})
-
-    }, [defaultExcer, excercises])
 
 
 
@@ -35,6 +34,7 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer }) 
                     value={excercise}
                     label="Excercise"
                     onChange={(e) => {
+                        console.log(e.target.value)
                         setExcercise(e.target.value)
                         handleChange(e)
                     }}

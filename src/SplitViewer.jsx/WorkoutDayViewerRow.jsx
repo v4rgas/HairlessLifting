@@ -5,10 +5,10 @@ export default function WorkoutDayViewerRow({ workout }) {
     return (
         <TableRow>
             <TableCell>
-                {workout.muscle.name}
+                {workout.muscle?.name}
             </TableCell>
             <TableCell>
-                {workout.excer.name} <PlayVideoButton videoUrl={workout.excer.link} />
+                {workout.excer?.name} <PlayVideoButton videoUrl={workout.excer?.link} />
             </TableCell>
         </TableRow>
     )

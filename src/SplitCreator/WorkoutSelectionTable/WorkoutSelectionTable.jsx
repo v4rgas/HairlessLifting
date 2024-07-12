@@ -6,13 +6,13 @@ import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
 function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }) {
   const [workouts, setWorkouts] = useState(defaultWorkouts)
 
-  useEffect(() => { onSelectionChange(workouts); }, [workouts])
+  //useEffect(() => { setWorkouts(defaultWorkouts) }, [defaultWorkouts])
 
   const handleSelectionChange = (id, updatedWorkout) => {
-    setWorkouts(workouts =>
-      workouts.map(workout => (workout.id === id ? { ...workout, ...updatedWorkout } : workout))
-    );
-
+    console.log(updatedWorkout, id, "updatedWorkout")
+    const newWorkouts = workouts.map(workout => (workout.id === id ? { ...workout, ...updatedWorkout } : workout))
+    setWorkouts(newWorkouts);
+    onSelectionChange(newWorkouts);
   };
 
   return (
