@@ -12,10 +12,10 @@ import App from './App.jsx';
 import Home from './Home/Home.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import SplitCreator from './SplitCreator/SplitCreator.jsx';
 import SavedSplits from './SavedSplits/SavedSplits.jsx';
+import SplitCreator from './SplitCreator/SplitCreator.jsx';
 import SplitTracker from './SplitTracker/SplitTracker.jsx';
-import SplitViewer from './SplitViewer.jsx/SplitVIewer.jsx';
+import SplitViewer from './SplitViewer.jsx/SplitViewer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,17 +32,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/saved",
-        element: <SavedSplits/>
+        element: <SavedSplits />
       },
       {
         path: "/split/:splitId",
-        element: <SplitViewer/>
+        element: <SplitViewer />
       },
       {
         path: "/tracker",
-        element: <SplitTracker/>
+        element: <SplitTracker />
       },
-      
+
     ]
   },
 ]);

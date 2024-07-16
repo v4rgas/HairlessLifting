@@ -1,11 +1,10 @@
 import { Button, Container, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
-
-import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
-import useStorage from "../utils/useStorage"
 import { useLocation, useNavigate } from "react-router-dom"
 
+import WorkoutSelectionTable from "./WorkoutSelectionTable/WorkoutSelectionTable"
 import splitNames from "../assets/funnySplitNames.json"
+import useStorage from "../utils/useStorage"
 
 export default function SplitCreator() {
     const location = useLocation()
@@ -29,14 +28,20 @@ export default function SplitCreator() {
     }
     return (
         <Container sx={{ py: 5 }}>
-            
-            
+
+
 
             <Stack spacing={5}>
-                <TextField value={splitName} onChange={(e)=>setSplitName(e.target.value)} fullWidth></TextField>
-                
+                <TextField value={splitName} onChange={(e) => setSplitName(e.target.value)} fullWidth></TextField>
+
                 {workoutDays.map(day =>
-                    <WorkoutSelectionTable defaultWorkouts={day.workouts} name={day.id} key={day.id} onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)} />
+                    <WorkoutSelectionTable
+                        defaultWorkouts={day.workouts}
+                        name={day.id}
+                        key={day.id}
+                        onSelectionChange={updatedWorkouts => handleSelectionChange(day.id, updatedWorkouts)}
+                        onDelete={() => setWorkoutDays(workoutDays => workoutDays.filter(workoutDay => workoutDay.id !== day.id))}
+                    />
                 )}
 
                 <Button variant='contained' color="secondary" fullWidth onClick={() => {
@@ -48,11 +53,12 @@ export default function SplitCreator() {
 
 
 
-                <Button variant='contained' fullWidth onClick={()=> {                    
-                    saveSplit({id: initialSplit.id || Date.now(), splitName, workoutDays})
+                <Button variant='contained' fullWidth onClick={() => {
+                    console.log("initial split", initialSplit.id, workoutDays)
+                    saveSplit({ id: initialSplit.id || Date.now(), splitName, workoutDays })
                     navigate("/saved")
-                    }}>
-                        Create split
+                }}>
+                    Save split
                 </Button>
             </Stack>
 

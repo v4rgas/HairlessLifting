@@ -1,15 +1,18 @@
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
+
+import GoBackButton from "../GoBackButton";
 import { useParams } from "react-router-dom";
 import useStorage from "../utils/useStorage";
-import GoBackButton from "../GoBackButton";
 
 export default function SplitTracker() {
 
 
+
+
     return (
         <Container>
-
-            <GoBackButton/>
+            <Button variant="contained" onClick={() => console.log("hello")}>Start tracking</Button>
+            <GoBackButton />
         </Container>
     );
 }

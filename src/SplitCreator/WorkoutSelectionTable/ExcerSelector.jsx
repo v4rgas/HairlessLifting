@@ -1,10 +1,9 @@
 import { Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material'
 import { useEffect, useState } from 'react';
 
+import PlayVideoButton from '../../PlayVideoButton';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import useBackendApi from '../../utils/useBackendApi';
-import PlayVideoButton from '../../PlayVideoButton';
-
 
 export default function ExcerSelector({ handleChange, muscleId, defaultExcer = {} }) {
     const [excercise, setExcercise] = useState(defaultExcer);
@@ -25,32 +24,23 @@ export default function ExcerSelector({ handleChange, muscleId, defaultExcer = {
 
 
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={10}>
-            <FormControl fullWidth>
-                <InputLabel id="excercise-select">Excercise</InputLabel>
-                <Select
-                    labelId="excercise-select"
-                    id="excercise-selector"
-                    value={excercise}
-                    label="Excercise"
-                    onChange={(e) => {
-                        console.log(e.target.value)
-                        setExcercise(e.target.value)
-                        handleChange(e)
-                    }}
-                >
-                    {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise}>{excercise.name}</MenuItem>)}
-                </Select>
+        <FormControl fullWidth>
+            <InputLabel id="excercise-select">Excercise</InputLabel>
+            <Select
+                labelId="excercise-select"
+                id="excercise-selector"
+                value={excercise}
+                label="Excercise"
+                onChange={(e) => {
+                    console.log(e.target.value)
+                    setExcercise(e.target.value)
+                    handleChange(e)
+                }}
+            >
+                {excercises.map(excercise => <MenuItem key={excercise.id} value={excercise}>{excercise.name}</MenuItem>)}
+            </Select>
 
-            </FormControl >
-            </Grid>
-
-            <Grid xs={2} item alignContent={"center"}>
-            {excercise.link && <PlayVideoButton videoUrl={excercise.link}  />}
-            </Grid>
-
-        </Grid>
+        </FormControl >
     )
 
 

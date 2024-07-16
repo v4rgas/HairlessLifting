@@ -1,10 +1,11 @@
-import { Container, Typography, Stack, Grid  } from "@mui/material";
+import { Container, Grid, Stack, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import useStorage from "../utils/useStorage";
-import GoBackButton from "../GoBackButton";
-import WorkoutDayViewer from "./WorkoutDayViewer";
+
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
+import GoBackButton from "../GoBackButton";
+import WorkoutDayViewer from "./WorkoutDayViewer";
+import useStorage from "../utils/useStorage";
 
 export default function SplitViewer() {
     const { splitId } = useParams();
@@ -23,27 +24,27 @@ export default function SplitViewer() {
 
                 <Grid xs={2} md={2} alignContent={"center"} item container>
                     <Grid xs={12} md={6} item>
-                    <DeleteButton onClick={()=>{
-                        
-                        deleteSplit(splitId);
-                        navigate("/saved")
-                    }}
-                    sx={{mx: "auto"}}
-                    ></DeleteButton>
+                        <DeleteButton onClick={() => {
+
+                            deleteSplit(splitId);
+                            navigate("/saved")
+                        }}
+                            sx={{ mx: "auto" }}
+                        ></DeleteButton>
                     </Grid>
 
                     <Grid xs={12} md={6} item>
-                    <EditButton onClick={()=>navigate("/create", {state: {initialSplit: split}})}>
+                        <EditButton onClick={() => navigate("/create", { state: { initialSplit: split } })}>
                         </EditButton>
-                    </Grid>  
+                    </Grid>
                 </Grid>
 
-                {split?.workoutDays?.map((workoutDay, index) => 
-                <Grid xs={12} item> <WorkoutDayViewer key={index} workoutDay={workoutDay} /> </Grid>
+                {split?.workoutDays?.map((workoutDay, index) =>
+                    <Grid key={index} xs={12} item> <WorkoutDayViewer key={index} workoutDay={workoutDay} /> </Grid>
                 )}
 
                 <Grid xs={12} item>
-                    <GoBackButton/>
+                    <GoBackButton />
                 </Grid>
 
             </Grid>

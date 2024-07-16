@@ -1,9 +1,10 @@
-import { Button, Divider, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Box, Button, Divider, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
+import DeleteButton from '../../DeleteButton';
 import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
 
-function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }) {
+function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], onDelete }) {
   const [workouts, setWorkouts] = useState(defaultWorkouts)
 
   //useEffect(() => { setWorkouts(defaultWorkouts) }, [defaultWorkouts])
@@ -15,19 +16,37 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
     onSelectionChange(newWorkouts);
   };
 
+  const handleDelete = (id) => {
+    const fileredWorkouts = workouts.filter(w => w.id !== id)
+    setWorkouts(fileredWorkouts)
+    onSelectionChange(fileredWorkouts)
+  }
+
   return (
-    <TableContainer component={Paper} elevation={5}>
-      <Typography variant='h5' sx={{ p: 1, textAlign: "center" }}>{name}</Typography>
+    <TableContainer component={Paper} elevation={5} sx={{ width: 1 }}>
+      <Stack direction='row' justifyContent='space-between' alignItems='center' width={1}>
+        <Box />
+        <Typography variant='h5' sx={{ p: 1, width: 1, textAlign: 'center' }}>{name} </Typography>
+        <DeleteButton onClick={onDelete} />
+      </Stack>
       <Divider />
-      <Table>
+      <Table sx={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography variant="h6">Primary Muscle</Typography>
+              <Typography variant="h6">Muscle</Typography>
             </TableCell>
 
             <TableCell>
               <Typography variant="h6">Excercise</Typography>
+            </TableCell>
+
+            <TableCell padding='checkbox' >
+              {/* <Typography variant="h6">Video</Typography> */}
+            </TableCell>
+
+            <TableCell padding='checkbox'>
+              {/* <Typography variant="h6">Delete</Typography> */}
             </TableCell>
           </TableRow>
         </TableHead>
@@ -36,14 +55,14 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [] }
           {workouts.map(workout => <WorkoutSelectionTableRow
             key={workout.id}
             onSelectionChange={updatedWorkout => handleSelectionChange(workout.id, updatedWorkout)}
-            onDelete={() => setWorkouts(workouts => workouts.filter(w => w.id !== workout.id))}
+            onDelete={() => handleDelete(workout.id)}
             defaultMuscle={workout.muscle}
             defaultExcer={workout.excer}
           />)}
         </TableBody>
       </Table>
       <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add excercise</Button>
-    </TableContainer>
+    </TableContainer >
   )
 }
 
