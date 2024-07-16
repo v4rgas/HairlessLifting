@@ -18,9 +18,9 @@ export default function DeleteButton({ onClick = () => { }, sx = {} }) {
                 <DeleteIcon />
             </IconButton>
             <Dialog open={open} onClose={() => setOpen(false)}>
-                <DialogTitle>Confirm deletion</DialogTitle>
+                <DialogTitle>Confirm Deletion</DialogTitle>
                 <DialogContent>
-                    Are you sure you want to delete this item
+                    Are you sure you want to delete this item?
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpen(false)}>Cancel</Button>

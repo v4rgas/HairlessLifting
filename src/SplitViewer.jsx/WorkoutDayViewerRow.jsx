@@ -1,4 +1,5 @@
-import { Container, TableContainer, Table, TableHead, TableRow, TableCell, Paper, Typography, Divider, TableBody  } from "@mui/material";
+import { Container, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+
 import PlayVideoButton from "../PlayVideoButton";
 
 export default function WorkoutDayViewerRow({ workout }) {
@@ -8,7 +9,10 @@ export default function WorkoutDayViewerRow({ workout }) {
                 {workout.muscle?.name}
             </TableCell>
             <TableCell>
-                {workout.excer?.name} <PlayVideoButton videoUrl={workout.excer?.link} />
+                {workout.excer?.name}
+            </TableCell>
+            <TableCell >
+                <PlayVideoButton videoUrl={workout.excer?.link} />
             </TableCell>
         </TableRow>
     )
