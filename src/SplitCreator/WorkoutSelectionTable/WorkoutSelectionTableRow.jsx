@@ -25,12 +25,13 @@ export default function WorkoutSelectionTableRow({ onSelectionChange, onDelete, 
                     onSelectionChange({ muscle: currentSelectedMuscle, excer: e.target.value })
                 }} />
             </TableCell>
-            <TableCell>
-                {currentSelectedExcer.link && <PlayVideoButton videoUrl={currentSelectedExcer.link} />}
-            </TableCell>
-            <TableCell>
+            <TableCell align="center" sx={{ justifyContent: 'space-between', display: 'flex' }}>
+                <PlayVideoButton videoUrl={currentSelectedExcer.link} />
                 <DeleteButton onClick={onDelete} />
             </TableCell>
+            {/* <TableCell align="center">
+
+            </TableCell> */}
         </TableRow>
     )
 }

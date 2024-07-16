@@ -1,12 +1,16 @@
 import { atom, useAtom, useAtomValue } from "jotai"
-
-import { splitsAtom } from "./atoms"
+import { splitsAtom, workoutSessionsAtom } from "./atoms"
 
 export default function useStorage() {
     const [splits, setSplits] = useAtom(splitsAtom)
+    const [workoutSessions, setWorkoutSessions] = useAtom(workoutSessionsAtom)
 
     const cloneSplits = () => {
         return { ...splits }
+    }
+
+    const cloneWorkoutSessions = () => {
+        return { ...workoutSessions }
     }
 
     return {
@@ -24,7 +28,31 @@ export default function useStorage() {
             const newSplits = cloneSplits()
             delete newSplits[splitId]
             setSplits(newSplits)
-        }
+        },
 
+        createSession: () => {
+            const newWorkoutSessions = cloneWorkoutSessions()
+            const newSessionId = Date.now()
+            newWorkoutSessions[newSessionId] = {
+                id: newSessionId,
+                workouts: []
+            }
+            setWorkoutSessions(newWorkoutSessions)
+            return newSessionId
+        },
+
+        getSession: (sessionId) => {
+            return workoutSessions[sessionId]
+        },
+
+        saveSession: (session) => {
+            const newWorkoutSessions = cloneWorkoutSessions()
+            newWorkoutSessions[session.id] = session
+            setWorkoutSessions(newWorkoutSessions)
+        },
+
+        getSessions: () => {
+            return workoutSessions
+        }
     }
 }

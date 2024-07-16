@@ -1,4 +1,4 @@
-import { Button, Container, Stack, Typography } from "@mui/material"
+import { Button, Container, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 
 import GoBackButton from "../GoBackButton"
@@ -16,6 +16,17 @@ export default function SavedSplits() {
     return (
 
         <Container>
+            {/* <Typography variant="h3">
+                Saved splits
+            </Typography>
+            <List component={Paper} elevation={5} sx={{ width: 300 }}>
+                {Object.values(splits).map((split) =>
+                    <ListItemButton key={split.id} onClick={() => navigate("/split/" + split.id)}>
+                        <ListItemText primary={split.splitName} />
+                    </ListItemButton>
+                )
+                }
+            </List> */}
             <Stack spacing={5}>
                 <Typography variant="h3">
                     Saved splits
@@ -28,6 +39,7 @@ export default function SavedSplits() {
                     </Button>)}
                 <GoBackButton />
             </Stack>
+
         </Container>
 
 

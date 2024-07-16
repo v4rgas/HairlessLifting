@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Box, Button, Divider, Grid, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 import DeleteButton from '../../DeleteButton';
@@ -24,11 +24,10 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
 
   return (
     <TableContainer component={Paper} elevation={5} sx={{ width: 1 }}>
-      <Stack direction='row' justifyContent='space-between' alignItems='center' width={1}>
-        <Box />
-        <Typography variant='h5' sx={{ p: 1, width: 1, textAlign: 'center' }}>{name} </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 1 }}>
+        <Typography variant='h5' sx={{ textAlign: 'center', flexGrow: 1 }}>{name}</Typography>
         <DeleteButton onClick={onDelete} />
-      </Stack>
+      </Box>
       <Divider />
       <Table sx={{ tableLayout: 'fixed' }}>
         <TableHead>
@@ -40,14 +39,11 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
             <TableCell>
               <Typography variant="h6">Excercise</Typography>
             </TableCell>
-
-            <TableCell padding='checkbox' >
-              {/* <Typography variant="h6">Video</Typography> */}
+            <TableCell width={100}>
+              <Typography textOverflow={"wrap"} variant="h6">Actions</Typography>
             </TableCell>
 
-            <TableCell padding='checkbox'>
-              {/* <Typography variant="h6">Delete</Typography> */}
-            </TableCell>
+
           </TableRow>
         </TableHead>
 

@@ -16,6 +16,7 @@ import SavedSplits from './SavedSplits/SavedSplits.jsx';
 import SplitCreator from './SplitCreator/SplitCreator.jsx';
 import SplitTracker from './SplitTracker/SplitTracker.jsx';
 import SplitViewer from './SplitViewer.jsx/SplitViewer.jsx';
+import WorkoutSessionLogger from './SplitTracker/WorkoutSessionLogger.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/tracker",
         element: <SplitTracker />
+      },
+      {
+        path: "/tracker/:sessionId",
+        element: <WorkoutSessionLogger />
       },
 
     ]
