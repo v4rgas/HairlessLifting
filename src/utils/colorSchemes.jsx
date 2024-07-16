@@ -16,8 +16,19 @@ export const dracula = {
             primary: '#f8f8f2', // Dracula foreground
             secondary: '#6272a4', // Dracula comment
         },
+        error: {
+            main: '#ff5555', // Dracula red
+        },
+        warning: {
+            main: '#f1fa8c', // Dracula yellow
+        },
+        info: {
+            main: '#8be9fd', // Dracula cyan
+        },
+        success: {
+            main: '#50fa7b', // Dracula green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -34,8 +45,19 @@ export const dracula = {
             primary: '#282a36', // Dracula background for text in light theme
             secondary: '#44475a', // Dracula current line for secondary text in light theme
         },
+        error: {
+            main: '#ff5555', // Dracula red
+        },
+        warning: {
+            main: '#f1fa8c', // Dracula yellow
+        },
+        info: {
+            main: '#8be9fd', // Dracula cyan
+        },
+        success: {
+            main: '#50fa7b', // Dracula green
+        },
     }
-
 }
 
 export const solarized = {
@@ -56,8 +78,19 @@ export const solarized = {
             primary: '#839496', // Solarized base0
             secondary: '#586e75', // Solarized base01
         },
+        error: {
+            main: '#dc322f', // Solarized red
+        },
+        warning: {
+            main: '#b58900', // Solarized yellow
+        },
+        info: {
+            main: '#268bd2', // Solarized blue
+        },
+        success: {
+            main: '#859900', // Solarized green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -73,6 +106,18 @@ export const solarized = {
         text: {
             primary: '#657b83', // Solarized base00
             secondary: '#93a1a1', // Solarized base1
+        },
+        error: {
+            main: '#dc322f', // Solarized red
+        },
+        warning: {
+            main: '#b58900', // Solarized yellow
+        },
+        info: {
+            main: '#268bd2', // Solarized blue
+        },
+        success: {
+            main: '#859900', // Solarized green
         },
     }
 }
@@ -95,8 +140,19 @@ export const nord = {
             primary: '#eceff4', // Nord snow storm
             secondary: '#d8dee9', // Nord snow storm
         },
+        error: {
+            main: '#bf616a', // Nord red
+        },
+        warning: {
+            main: '#ebcb8b', // Nord yellow
+        },
+        info: {
+            main: '#81a1c1', // Nord blue
+        },
+        success: {
+            main: '#a3be8c', // Nord green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -112,6 +168,18 @@ export const nord = {
         text: {
             primary: '#2e3440', // Nord polar night
             secondary: '#3b4252', // Nord polar night
+        },
+        error: {
+            main: '#bf616a', // Nord red
+        },
+        warning: {
+            main: '#ebcb8b', // Nord yellow
+        },
+        info: {
+            main: '#81a1c1', // Nord blue
+        },
+        success: {
+            main: '#a3be8c', // Nord green
         },
     }
 }
@@ -134,8 +202,19 @@ export const materialOcean = {
             primary: '#eceff1', // Material Ocean light text
             secondary: '#b0bec5', // Material Ocean grey
         },
+        error: {
+            main: '#f44336', // Material Ocean red
+        },
+        warning: {
+            main: '#ffeb3b', // Material Ocean yellow
+        },
+        info: {
+            main: '#03a9f4', // Material Ocean blue
+        },
+        success: {
+            main: '#4caf50', // Material Ocean green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -151,6 +230,18 @@ export const materialOcean = {
         text: {
             primary: '#263238', // Material Ocean dark text
             secondary: '#37474f', // Material Ocean blue grey
+        },
+        error: {
+            main: '#f44336', // Material Ocean red
+        },
+        warning: {
+            main: '#ffeb3b', // Material Ocean yellow
+        },
+        info: {
+            main: '#03a9f4', // Material Ocean blue
+        },
+        success: {
+            main: '#4caf50', // Material Ocean green
         },
     }
 }
@@ -173,8 +264,19 @@ export const monokai = {
             primary: '#f8f8f2', // Monokai foreground
             secondary: '#75715e', // Monokai comment
         },
+        error: {
+            main: '#f92672', // Monokai red
+        },
+        warning: {
+            main: '#fd971f', // Monokai orange
+        },
+        info: {
+            main: '#66d9ef', // Monokai blue
+        },
+        success: {
+            main: '#a6e22e', // Monokai green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -190,6 +292,18 @@ export const monokai = {
         text: {
             primary: '#272822', // Monokai background
             secondary: '#3e3d32', // Monokai current line
+        },
+        error: {
+            main: '#f92672', // Monokai red
+        },
+        warning: {
+            main: '#fd971f', // Monokai orange
+        },
+        info: {
+            main: '#66d9ef', // Monokai blue
+        },
+        success: {
+            main: '#a6e22e', // Monokai green
         },
     }
 }
@@ -212,8 +326,19 @@ export const gruvbox = {
             primary: '#ebdbb2', // Gruvbox light text
             secondary: '#928374', // Gruvbox gray text
         },
+        error: {
+            main: '#fb4934', // Gruvbox red
+        },
+        warning: {
+            main: '#fe8019', // Gruvbox orange
+        },
+        info: {
+            main: '#83a598', // Gruvbox blue
+        },
+        success: {
+            main: '#b8bb26', // Gruvbox green
+        },
     },
-
     light: {
         mode: 'light',
         primary: {
@@ -229,6 +354,18 @@ export const gruvbox = {
         text: {
             primary: '#3c3836', // Gruvbox dark text
             secondary: '#504945', // Gruvbox gray dark text
+        },
+        error: {
+            main: '#cc241d', // Gruvbox red dark
+        },
+        warning: {
+            main: '#d65d0e', // Gruvbox orange dark
+        },
+        info: {
+            main: '#458588', // Gruvbox blue dark
+        },
+        success: {
+            main: '#98971a', // Gruvbox green dark
         },
     }
 }
