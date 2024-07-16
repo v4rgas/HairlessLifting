@@ -16,7 +16,7 @@ export default function WorkoutDayViewer({ workoutDay }) {
                         </TableCell>
 
                         <TableCell>
-                            <Typography variant="h6">Excercise</Typography>
+                            <Typography variant="h6">Exercise</Typography>
                         </TableCell>
 
                         <TableCell width={100}>

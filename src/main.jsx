@@ -13,6 +13,7 @@ import Home from './Home/Home.jsx';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import SavedSplits from './SavedSplits/SavedSplits.jsx';
+import Settings from './Settings/Settings.jsx';
 import SplitCreator from './SplitCreator/SplitCreator.jsx';
 import SplitTracker from './SplitTracker/SplitTracker.jsx';
 import SplitViewer from './SplitViewer.jsx/SplitViewer.jsx';
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         path: "/tracker/:sessionId",
         element: <WorkoutSessionLogger />
       },
+      {
+        path: '/settings',
+        element: <Settings />
+      }
 
     ]
   },

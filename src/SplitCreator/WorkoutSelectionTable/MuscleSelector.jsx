@@ -30,7 +30,7 @@ export default function MuscleSelector({ handleChange, defaultMuscle = {} }) {
                 handleChange(e)
             }}
         >
-            {muscles.map(muscle => <MenuItem key={muscle.id} value={muscle}>{muscle.name}</MenuItem>)}
+            {muscles.map((muscle, i) => <MenuItem key={i} value={muscle}>{muscle.name}</MenuItem>)}
         </Select>
     </FormControl >)
 

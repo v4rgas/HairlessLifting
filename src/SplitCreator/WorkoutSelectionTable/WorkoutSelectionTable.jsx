@@ -37,7 +37,7 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
             </TableCell>
 
             <TableCell>
-              <Typography variant="h6">Excercise</Typography>
+              <Typography variant="h6">Exercise</Typography>
             </TableCell>
             <TableCell width={100}>
               <Typography textOverflow={"wrap"} variant="h6">Actions</Typography>
@@ -53,11 +53,11 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
             onSelectionChange={updatedWorkout => handleSelectionChange(workout.id, updatedWorkout)}
             onDelete={() => handleDelete(workout.id)}
             defaultMuscle={workout.muscle}
-            defaultExcer={workout.excer}
+            defaultExer={workout.exer}
           />)}
         </TableBody>
       </Table>
-      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add excercise</Button>
+      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add exercise</Button>
     </TableContainer >
   )
 }

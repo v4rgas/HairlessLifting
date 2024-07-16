@@ -9,10 +9,14 @@ export default function useBackendApi() {
             })
 
         },
-        getExcercises: async (muscleId) => {
+        getExercises: async (muscleId) => {
+            if (!exercises[muscleId]) {
+                console.error(`No exercises found for muscleId: ${muscleId}`);
+                return [];
+            }
             return exercises[muscleId].map(({ name, link }, index) => {
-                return { id: index, name, muscleId: muscleId, link }
-            })
+                return { id: index, name, muscleId: muscleId, link };
+            });
         },
         getSplits: async () => {
             return [

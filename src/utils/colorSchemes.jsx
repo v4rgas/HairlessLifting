@@ -1,0 +1,236 @@
+export const dracula = {
+    name: 'Dracula',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#bd93f9', // Dracula purple
+        },
+        secondary: {
+            main: '#ff79c6', // Dracula pink
+        },
+        background: {
+            default: '#282a36', // Dracula background
+            paper: '#44475a', // Dracula current line
+        },
+        text: {
+            primary: '#f8f8f2', // Dracula foreground
+            secondary: '#6272a4', // Dracula comment
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#6272a4', // Dracula comment color for light theme
+        },
+        secondary: {
+            main: '#ff79c6', // Dracula pink
+        },
+        background: {
+            default: '#f8f8f2', // Dracula foreground for light theme
+            paper: '#ffffff', // White paper
+        },
+        text: {
+            primary: '#282a36', // Dracula background for text in light theme
+            secondary: '#44475a', // Dracula current line for secondary text in light theme
+        },
+    }
+
+}
+
+export const solarized = {
+    name: 'Solarized',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#268bd2', // Solarized blue
+        },
+        secondary: {
+            main: '#2aa198', // Solarized cyan
+        },
+        background: {
+            default: '#002b36', // Solarized base03
+            paper: '#073642', // Solarized base02
+        },
+        text: {
+            primary: '#839496', // Solarized base0
+            secondary: '#586e75', // Solarized base01
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#268bd2', // Solarized blue
+        },
+        secondary: {
+            main: '#2aa198', // Solarized cyan
+        },
+        background: {
+            default: '#fdf6e3', // Solarized base3
+            paper: '#eee8d5', // Solarized base2
+        },
+        text: {
+            primary: '#657b83', // Solarized base00
+            secondary: '#93a1a1', // Solarized base1
+        },
+    }
+}
+
+export const nord = {
+    name: 'Nord',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#81a1c1', // Nord frost
+        },
+        secondary: {
+            main: '#88c0d0', // Nord frost
+        },
+        background: {
+            default: '#2e3440', // Nord polar night
+            paper: '#3b4252', // Nord polar night
+        },
+        text: {
+            primary: '#eceff4', // Nord snow storm
+            secondary: '#d8dee9', // Nord snow storm
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#81a1c1', // Nord frost
+        },
+        secondary: {
+            main: '#88c0d0', // Nord frost
+        },
+        background: {
+            default: '#eceff4', // Nord snow storm
+            paper: '#e5e9f0', // Nord snow storm
+        },
+        text: {
+            primary: '#2e3440', // Nord polar night
+            secondary: '#3b4252', // Nord polar night
+        },
+    }
+}
+
+export const materialOcean = {
+    name: 'Material Ocean',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#009688', // Material Ocean teal
+        },
+        secondary: {
+            main: '#ff5722', // Material Ocean deep orange
+        },
+        background: {
+            default: '#263238', // Material Ocean blue grey
+            paper: '#37474f', // Material Ocean blue grey dark
+        },
+        text: {
+            primary: '#eceff1', // Material Ocean light text
+            secondary: '#b0bec5', // Material Ocean grey
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#00796b', // Material Ocean teal dark
+        },
+        secondary: {
+            main: '#e64a19', // Material Ocean deep orange dark
+        },
+        background: {
+            default: '#fafafa', // Material Ocean light background
+            paper: '#ffffff', // Material Ocean white paper
+        },
+        text: {
+            primary: '#263238', // Material Ocean dark text
+            secondary: '#37474f', // Material Ocean blue grey
+        },
+    }
+}
+
+export const monokai = {
+    name: 'Monokai',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#a6e22e', // Monokai green
+        },
+        secondary: {
+            main: '#f92672', // Monokai pink
+        },
+        background: {
+            default: '#272822', // Monokai background
+            paper: '#3e3d32', // Monokai current line
+        },
+        text: {
+            primary: '#f8f8f2', // Monokai foreground
+            secondary: '#75715e', // Monokai comment
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#a6e22e', // Monokai green
+        },
+        secondary: {
+            main: '#f92672', // Monokai pink
+        },
+        background: {
+            default: '#f8f8f2', // Monokai foreground
+            paper: '#ffffff', // White paper
+        },
+        text: {
+            primary: '#272822', // Monokai background
+            secondary: '#3e3d32', // Monokai current line
+        },
+    }
+}
+
+export const gruvbox = {
+    name: 'Gruvbox',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#fabd2f', // Gruvbox yellow
+        },
+        secondary: {
+            main: '#d3869b', // Gruvbox pink
+        },
+        background: {
+            default: '#282828', // Gruvbox background
+            paper: '#3c3836', // Gruvbox darker background
+        },
+        text: {
+            primary: '#ebdbb2', // Gruvbox light text
+            secondary: '#928374', // Gruvbox gray text
+        },
+    },
+
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#d79921', // Gruvbox yellow dark
+        },
+        secondary: {
+            main: '#b16286', // Gruvbox pink dark
+        },
+        background: {
+            default: '#fbf1c7', // Gruvbox light background
+            paper: '#f2e5bc', // Gruvbox light paper
+        },
+        text: {
+            primary: '#3c3836', // Gruvbox dark text
+            secondary: '#504945', // Gruvbox gray dark text
+        },
+    }
+}
+
+export default [dracula, solarized, nord, materialOcean, monokai, gruvbox]

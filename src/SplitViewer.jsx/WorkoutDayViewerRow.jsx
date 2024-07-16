@@ -9,10 +9,10 @@ export default function WorkoutDayViewerRow({ workout }) {
                 {workout.muscle?.name}
             </TableCell>
             <TableCell>
-                {workout.excer?.name}
+                {workout.exer?.name}
             </TableCell>
             <TableCell >
-                <PlayVideoButton videoUrl={workout.excer?.link} />
+                <PlayVideoButton videoUrl={workout.exer?.link} />
             </TableCell>
         </TableRow>
     )
