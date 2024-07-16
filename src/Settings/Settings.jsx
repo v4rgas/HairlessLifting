@@ -3,14 +3,19 @@ import { Container, FormControl, InputLabel, MenuItem, Select, Stack, Typography
 import { colorSchemeAtom } from "../utils/atoms";
 import colorSchemes from '../utils/colorSchemes'
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 
 export default function Settings() {
     const [colorScheme, setColorScheme] = useAtom(colorSchemeAtom)
 
+    useEffect(() => {
+        setColorScheme(colorSchemes.find(cs => cs.name === colorScheme.name) || colorSchemes[0])
+    }, [colorScheme])
+
     return (
         <Container>
             <Stack spacing={5}>
-                <Typography variant='h3'>Settings</Typography>
+                <Typography variant='h4'>Settings</Typography>
                 <FormControl fullWidth>
                     <InputLabel id="colorScheme-select">Color Scheme</InputLabel>
                     <Select
