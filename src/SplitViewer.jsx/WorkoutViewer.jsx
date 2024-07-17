@@ -26,7 +26,7 @@ export default function WorkoutViewer({ workout }) {
                 </TableHead>
 
                 <TableBody>
-                    {workout?.exercises.map((workout, index) => <WorkoutViewerRow key={index} workout={workout} />)}
+                    {workout?.exercises?.map((workout, index) => <WorkoutViewerRow key={index} workout={workout} />)}
                 </TableBody>
             </Table>
         </TableContainer>
