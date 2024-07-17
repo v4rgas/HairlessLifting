@@ -1,14 +1,16 @@
 import { Button, Collapse, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton, ListItemIcon } from "@mui/material";
 
-import ExpandedIcon from "./ExpandedIconButton";
+import ExpandedIconButton from "./ExpandedIconButton";
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Upload } from "@mui/icons-material";
 import UploadIcon from '@mui/icons-material/Upload';
 import { useState } from 'react';
 
-export default function WorkoutDayListItem({ splitId, workoutDay }) {
+export default function WorkoutListItem({ splitId, workout }) {
     const [expanded, setExpanded] = useState(false);
+
+    console.log(workout)
 
     const toggleExpand = () => {
         setExpanded(!expanded);
@@ -23,9 +25,9 @@ export default function WorkoutDayListItem({ splitId, workoutDay }) {
                 </IconButton>
             }>
                 <ListItemAvatar>
-                    <ExpandedIcon open={expanded} onClick={toggleExpand} />
+                    <ExpandedIconButton open={expanded} onClick={toggleExpand} />
                 </ListItemAvatar>
-                {workoutDay.id}
+                {workout.id}
                 <ListItemIcon>
 
                 </ListItemIcon>
@@ -35,9 +37,9 @@ export default function WorkoutDayListItem({ splitId, workoutDay }) {
 
             <Collapse in={expanded} unmountOnExit>
                 <List sx={{ pl: 4 }}>
-                    {workoutDay.workouts.map((workout) => (
-                        <ListItem key={workout.id}>
-                            {workout.exer.name}
+                    {workout.exercises.map((exercise) => (
+                        <ListItem key={exercise.id}>
+                            {exercise.movement.name}
                         </ListItem>
                     ))}
                 </List>

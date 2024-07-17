@@ -25,7 +25,7 @@ export default function WorkoutSessionLogger() {
 
                 setOpen(true)
 
-            }}>Add exercises from split</Button>
+            }}>Add workout from split</Button>
             <Button onClick={() => {
                 session.finishDate = Date.now()
                 saveSession(session)

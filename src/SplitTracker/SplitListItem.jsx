@@ -1,11 +1,12 @@
 import { Collapse, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton } from "@mui/material";
 
-import ExpandedIcon from "./ExpandedIconButton";
+import ExpandedIconButton from "./ExpandedIconButton";
 import WorkoutDayListItem from './WorkoutDayListItem';
 import { useState } from 'react';
 
 export default function SplitListItem({ id, split }) {
     const [expanded, setExpanded] = useState(false);
+    console.log(split)
 
     const toggleExpand = () => {
         setExpanded(!expanded);
@@ -15,7 +16,7 @@ export default function SplitListItem({ id, split }) {
         <>
             <ListItem>
                 <ListItemAvatar>
-                    <ExpandedIcon open={expanded} onClick={toggleExpand} />
+                    <ExpandedIconButton open={expanded} onClick={toggleExpand} />
                 </ListItemAvatar>
 
                 {split.splitName}
@@ -23,8 +24,8 @@ export default function SplitListItem({ id, split }) {
             </ListItem>
             <Collapse in={expanded} unmountOnExit>
                 <List sx={{ pl: 2 }}>
-                    {split.workoutDays.map((workoutDay) => (
-                        <WorkoutDayListItem key={workoutDay.id} splitId={id} workoutDay={workoutDay} />
+                    {split.workouts.map((workout) => (
+                        <WorkoutDayListItem key={workout.id} splitId={id} workout={workout} />
                     ))}
                 </List>
             </Collapse>

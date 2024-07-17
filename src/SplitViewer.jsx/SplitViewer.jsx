@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import GoBackButton from "../GoBackButton";
-import WorkoutDayViewer from "./WorkoutDayViewer";
+import WorkoutViewer from "./WorkoutViewer";
 import useStorage from "../utils/useStorage";
 
 export default function SplitViewer() {
@@ -39,8 +39,8 @@ export default function SplitViewer() {
                     </Grid>
                 </Grid>
 
-                {split?.workoutDays?.map((workoutDay, index) =>
-                    <Grid key={index} xs={12} item> <WorkoutDayViewer key={index} workoutDay={workoutDay} /> </Grid>
+                {split?.workouts?.map((workout, index) =>
+                    <Grid key={index} xs={12} item> <WorkoutViewer key={index} workout={workout} /> </Grid>
                 )}
 
                 <Grid xs={12} item>

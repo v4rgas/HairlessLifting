@@ -3,7 +3,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import { IconButton } from '@mui/material';
 import React from 'react';
 
-export default function ExpandedIcon({ open, onClick }) {
+export default function ExpandedIconButton({ open, onClick }) {
     return (
         <React.Fragment>
             <IconButton onClick={onClick}>

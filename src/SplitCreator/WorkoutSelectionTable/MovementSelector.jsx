@@ -5,18 +5,18 @@ import PlayVideoButton from '../../PlayVideoButton';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import useBackendApi from '../../utils/useBackendApi';
 
-export default function ExerSelector({ handleChange, muscleId, defaultExer = {} }) {
-    const [exercise, setExercise] = useState(defaultExer);
-    const [exercises, setExercises] = useState([defaultExer]);
+export default function MovementSelector({ handleChange, muscleId, defaultMovement = {} }) {
+    const [movement, setMovement] = useState(defaultMovement);
+    const [movements, setMovements] = useState([defaultMovement]);
 
-    const { getExercises } = useBackendApi();
+    const { getMovements: getExercises } = useBackendApi();
 
     useEffect(() => {
         const fetchExercises = async () => {
             if (muscleId === undefined) return
             const exercises = await getExercises(muscleId)
-            setExercises(exercises)
-            setExercise(exercises.find(e => e.id === defaultExer?.id) || {})
+            setMovements(exercises)
+            setMovement(exercises.find(e => e.id === defaultMovement?.id) || {})
         }
         fetchExercises()
     }, [muscleId])
@@ -26,20 +26,20 @@ export default function ExerSelector({ handleChange, muscleId, defaultExer = {} 
 
     return (
         <FormControl fullWidth>
-            <InputLabel id="exercise-select">Exercise</InputLabel>
+            <InputLabel id="movement-select">Movement</InputLabel>
             <Select
-                labelId="exercise-select"
-                id="exercise-selector"
-                value={exercise}
-                label="Exercise"
+                labelId="movement-select"
+                id="movement-selector"
+                value={movement}
+                label="Movement"
                 onChange={(e) => {
                     console.log(e.target.value)
-                    setExercise(e.target.value)
+                    setMovement(e.target.value)
                     handleChange(e)
                 }}
                 disabled={muscleId === undefined}
             >
-                {exercises.map((exercise, i) => <MenuItem key={i} value={exercise}>{exercise.name}</MenuItem>)}
+                {movements.map((movement, i) => <MenuItem key={i} value={movement}>{movement.name}</MenuItem>)}
             </Select>
 
         </FormControl >

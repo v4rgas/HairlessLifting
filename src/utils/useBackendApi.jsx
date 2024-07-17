@@ -9,9 +9,9 @@ export default function useBackendApi() {
             })
 
         },
-        getExercises: async (muscleId) => {
+        getMovements: async (muscleId) => {
             if (!exercises[muscleId]) {
-                console.error(`No exercises found for muscleId: ${muscleId}`);
+                console.error(`No movements found for muscleId: ${muscleId}`);
                 return [];
             }
             return exercises[muscleId].map(({ name, link }, index) => {

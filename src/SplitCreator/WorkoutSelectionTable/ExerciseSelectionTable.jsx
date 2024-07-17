@@ -2,24 +2,23 @@ import { Box, Button, Divider, Grid, Paper, Stack, Table, TableBody, TableCell, 
 import { useEffect, useState } from 'react'
 
 import DeleteButton from '../../DeleteButton';
-import WorkoutSelectionTableRow from './WorkoutSelectionTableRow'
+import ExerciseSelectionTableRow from './ExerciseSelectionTableRow'
 
-function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], onDelete }) {
-  const [workouts, setWorkouts] = useState(defaultWorkouts)
+function ExerciseSelectionTable({ name, onSelectionChange, defaultExercises = [], onDelete }) {
+  const [exercises, setExercises] = useState(defaultExercises)
 
-  //useEffect(() => { setWorkouts(defaultWorkouts) }, [defaultWorkouts])
 
-  const handleSelectionChange = (id, updatedWorkout) => {
-    console.log(updatedWorkout, id, "updatedWorkout")
-    const newWorkouts = workouts.map(workout => (workout.id === id ? { ...workout, ...updatedWorkout } : workout))
-    setWorkouts(newWorkouts);
-    onSelectionChange(newWorkouts);
+  const handleSelectionChange = (id, updatedExercise) => {
+    console.log(updatedExercise, id, "updatedExercise")
+    const newExercises = exercises.map(exercise => (exercise.id === id ? { ...exercise, ...updatedExercise } : exercise))
+    setExercises(newExercises);
+    onSelectionChange(newExercises);
   };
 
   const handleDelete = (id) => {
-    const fileredWorkouts = workouts.filter(w => w.id !== id)
-    setWorkouts(fileredWorkouts)
-    onSelectionChange(fileredWorkouts)
+    const filteredExercises = exercises.filter(w => w.id !== id)
+    setExercises(filteredExercises)
+    onSelectionChange(filteredExercises)
   }
 
   return (
@@ -37,7 +36,7 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
             </TableCell>
 
             <TableCell>
-              <Typography variant="h6">Exercise</Typography>
+              <Typography variant="h6">Movement</Typography>
             </TableCell>
             <TableCell width={100}>
               <Typography textOverflow={"wrap"} variant="h6">Actions</Typography>
@@ -48,18 +47,18 @@ function WorkoutSelectionTable({ name, onSelectionChange, defaultWorkouts = [], 
         </TableHead>
 
         <TableBody>
-          {workouts.map(workout => <WorkoutSelectionTableRow
+          {exercises.map(workout => <ExerciseSelectionTableRow
             key={workout.id}
             onSelectionChange={updatedWorkout => handleSelectionChange(workout.id, updatedWorkout)}
             onDelete={() => handleDelete(workout.id)}
             defaultMuscle={workout.muscle}
-            defaultExer={workout.exer}
+            defaultMovement={workout.movement}
           />)}
         </TableBody>
       </Table>
-      <Button variant='text' fullWidth onClick={() => { setWorkouts(workouts => [...workouts, { id: Date.now() }]) }}>Add exercise</Button>
+      <Button variant='text' fullWidth onClick={() => { setExercises(exercises => [...exercises, { id: Date.now() }]) }}>Add exercise</Button>
     </TableContainer >
   )
 }
 
-export default WorkoutSelectionTable
+export default ExerciseSelectionTable

@@ -1,12 +1,12 @@
 import { Container, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 
-import WorkoutDayViewerRow from "./WorkoutDayViewerRow";
+import WorkoutViewerRow from "./WorkoutViewerRow";
 
-export default function WorkoutDayViewer({ workoutDay }) {
-    console.log(workoutDay)
+export default function WorkoutViewer({ workout }) {
+    console.log(workout)
     return (
         <TableContainer component={Paper} elevation={5}>
-            <Typography variant='h5' sx={{ p: 1, textAlign: "center" }}>{workoutDay?.id} </Typography>
+            <Typography variant='h5' sx={{ p: 1, textAlign: "center" }}>{workout?.id} </Typography>
             <Divider />
             <Table style={{ tableLayout: 'fixed' }}>
                 <TableHead>
@@ -16,7 +16,7 @@ export default function WorkoutDayViewer({ workoutDay }) {
                         </TableCell>
 
                         <TableCell>
-                            <Typography variant="h6">Exercise</Typography>
+                            <Typography variant="h6">Movement</Typography>
                         </TableCell>
 
                         <TableCell width={100}>
@@ -26,7 +26,7 @@ export default function WorkoutDayViewer({ workoutDay }) {
                 </TableHead>
 
                 <TableBody>
-                    {workoutDay?.workouts.map((workout, index) => <WorkoutDayViewerRow key={index} workout={workout} />)}
+                    {workout?.exercises.map((workout, index) => <WorkoutViewerRow key={index} workout={workout} />)}
                 </TableBody>
             </Table>
         </TableContainer>

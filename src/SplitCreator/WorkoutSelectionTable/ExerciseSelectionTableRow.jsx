@@ -1,14 +1,14 @@
 import { TableCell, TableRow, Typography } from "@mui/material"
 
 import DeleteButton from "../../DeleteButton"
-import ExerSelector from "./ExerSelector"
+import MovementSelector from "./MovementSelector"
 import MuscleSelector from "./MuscleSelector"
 import PlayVideoButton from "../../PlayVideoButton"
 import { useState } from "react"
 
-export default function WorkoutSelectionTableRow({ onSelectionChange, onDelete, defaultMuscle = {}, defaultExer = {} }) {
+export default function ExerciseSelectionTableRow({ onSelectionChange, onDelete, defaultMuscle = {}, defaultMovement = {} }) {
     const [currentSelectedMuscle, setCurrentSelectedMuscle] = useState(defaultMuscle)
-    const [currentSelectedExer, setCurrentSelectedExer] = useState(defaultExer)
+    const [currentSelectedMovement, setCurrentSelectedMovement] = useState(defaultMovement)
 
     return (
         <TableRow>
@@ -20,18 +20,15 @@ export default function WorkoutSelectionTableRow({ onSelectionChange, onDelete, 
             </TableCell>
 
             <TableCell>
-                <ExerSelector defaultExer={defaultExer} muscleId={currentSelectedMuscle.id} handleChange={(e) => {
-                    setCurrentSelectedExer(e.target.value)
-                    onSelectionChange({ muscle: currentSelectedMuscle, exer: e.target.value })
+                <MovementSelector defaultMovement={defaultMovement} muscleId={currentSelectedMuscle.id} handleChange={(e) => {
+                    setCurrentSelectedMovement(e.target.value)
+                    onSelectionChange({ muscle: currentSelectedMuscle, movement: e.target.value })
                 }} />
             </TableCell>
             <TableCell align="center" sx={{ justifyContent: 'space-between', display: 'flex' }}>
-                <PlayVideoButton videoUrl={currentSelectedExer.link} />
+                <PlayVideoButton videoUrl={currentSelectedMovement.link} />
                 <DeleteButton onClick={onDelete} />
             </TableCell>
-            {/* <TableCell align="center">
-
-            </TableCell> */}
         </TableRow>
     )
 }

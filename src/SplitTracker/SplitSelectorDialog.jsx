@@ -9,7 +9,7 @@ export default function SplitSelectorDialog({ open, onClose }) {
 
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>Select a split</DialogTitle>
+            <DialogTitle>Select a workout from a split</DialogTitle>
             <DialogContent>
                 <List>
                     {Object.entries(splits).map(([id, split]) => (

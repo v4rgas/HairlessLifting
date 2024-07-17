@@ -15,7 +15,7 @@ export default function SplitTracker() {
     return (
         <Container>
             <Stack spacing={5}>
-                <Typography variant="h4">Active workout Sessions</Typography>
+                <Typography variant="h4">Active Sessions</Typography>
                 {Object.values(sessions).filter(session => !session.finishDate).map((session) => {
                     return <Button variant="contained" color="secondary" key={session.id}
                         onClick={() => navigate(`/tracker/${session.id}`)}>

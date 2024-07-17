@@ -2,17 +2,17 @@ import { Container, Divider, Paper, Table, TableBody, TableCell, TableContainer,
 
 import PlayVideoButton from "../PlayVideoButton";
 
-export default function WorkoutDayViewerRow({ workout }) {
+export default function WorkoutViewerRow({ workout }) {
     return (
         <TableRow>
             <TableCell>
                 {workout.muscle?.name}
             </TableCell>
             <TableCell>
-                {workout.exer?.name}
+                {workout.movement?.name}
             </TableCell>
             <TableCell >
-                <PlayVideoButton videoUrl={workout.exer?.link} />
+                <PlayVideoButton videoUrl={workout.movement?.link} />
             </TableCell>
         </TableRow>
     )
