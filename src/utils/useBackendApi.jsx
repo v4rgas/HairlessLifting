@@ -18,6 +18,14 @@ export default function useBackendApi() {
                 return { id: index, name, muscleId: muscleId, link };
             });
         },
+        getExercises: async () => {
+            // {muscle: {name: 'Chest', id: 'chest'}, movement: {name: 'Bench Press', id, muscleId, link}
+            return Object.keys(exercises).reduce((acc, muscle) => {
+                return acc.concat(exercises[muscle].map((movement, index) => {
+                    return { muscle: { name: muscle, id: muscle }, movement: { name: movement.name, id: index, muscleId: muscle, link: movement.link } }
+                }))
+            }, [])
+        },
         getSplits: async () => {
             return [
                 { id: 1, name: 'Push Pull Legs' },

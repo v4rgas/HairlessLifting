@@ -4,10 +4,14 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
 
-export default function ExerciseStatsTable({ exercise }) {
+export default function ExerciseStatsTable({ exercise, onLastSetRemove }) {
     const [sets, setSets] = useState([])
     const removeLastSet = () => {
+        if (sets.length === 0)
+            onLastSetRemove()
+
         setSets(sets => sets.slice(0, sets.length - 1))
+
     }
 
     return (
@@ -36,10 +40,10 @@ export default function ExerciseStatsTable({ exercise }) {
                         return (
                             <TableRow key={index}>
                                 <TableCell align="center">
-                                    <TextField type="number" inputProps={{ min: 0 }} variant="outlined" />
+                                    <TextField fullWidth type="number" inputProps={{ min: 0 }} variant="outlined" />
                                 </TableCell>
                                 <TableCell align="center">
-                                    <TextField type="number" inputProps={{ min: 0 }} variant="outlined" />
+                                    <TextField fullWidth type="number" inputProps={{ min: 0 }} variant="outlined" />
                                 </TableCell>
                             </TableRow>
                         )

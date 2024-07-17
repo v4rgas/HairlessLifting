@@ -1,6 +1,7 @@
 import { Button, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 
+import ExerciseSelectorDialog from "./ExerciseSelectorDialog/ExerciseSelectorDialog";
 import ExerciseStatsTable from "./ExerciseStatsTable";
 import GoBackButton from "../GoBackButton";
 import SplitSelectorDialog from "./SplitSelectorDialog/SplitSelectorDialog";
@@ -12,6 +13,7 @@ export default function WorkoutSessionLogger() {
     const { getSession, saveSession } = useStorage();
     const [session, setSession] = useState({ exercises: [] })
     const [open, setOpen] = useState(false);
+    const [openExerciseSelector, setOpenExerciseSelector] = useState(false);
 
     useEffect(() => {
         if (sessionId)
@@ -26,30 +28,49 @@ export default function WorkoutSessionLogger() {
                 setOpen(false)
                 session.exercises.push(...workout.exercises)
             }} />
+
+            <ExerciseSelectorDialog open={openExerciseSelector} onClose={() => setOpenExerciseSelector(false)} onSelectExercise={(exercise) => {
+                setOpenExerciseSelector(false)
+                session.exercises.push(exercise)
+            }
+            } />
+
             <Grid spacing={5} container>
 
 
 
                 {session.exercises.map((exercise, index) => {
                     return (
-                        <Grid item xs={12} md={6} key={index}>
-                            <ExerciseStatsTable key={index} exercise={exercise} />
+                        <Grid item xs={12} key={index}>
+                            <ExerciseStatsTable key={index} exercise={exercise} onLastSetRemove={() => {
+                                console.log('removing exercise')
+                                session.exercises = session.exercises.filter((_, i) => i !== index)
+                                setSession({ ...session })
+                            }} />
                         </Grid>
                     )
                 })}
 
                 <Grid item xs={3} >
-                    <Button onClick={() => {
+                    <Button fullWidth onClick={() => {
                         setOpen(true)
                     }}>Add workout from split</Button>
                 </Grid>
 
                 <Grid item xs={3}>
-                    <Button onClick={() => {
+                    <Button fullWidth onClick={() => {
+                        setOpenExerciseSelector(true)
+                    }}>Add Exercise</Button>
+                </Grid>
+
+                <Grid item xs={3}>
+                    <Button fullWidth onClick={() => {
                         session.finishDate = Date.now()
                         saveSession(session)
                     }}>End session</Button>
                 </Grid>
+
+
 
                 <Grid item xs={12}>
                     <GoBackButton />
