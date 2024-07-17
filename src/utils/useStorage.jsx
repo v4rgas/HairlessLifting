@@ -35,7 +35,7 @@ export default function useStorage() {
             const newSessionId = Date.now()
             newWorkoutSessions[newSessionId] = {
                 id: newSessionId,
-                workouts: []
+                exercises: []
             }
             setWorkoutSessions(newWorkoutSessions)
             return newSessionId

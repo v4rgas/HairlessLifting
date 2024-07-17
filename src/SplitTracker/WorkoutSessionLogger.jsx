@@ -9,7 +9,7 @@ import useStorage from "../utils/useStorage";
 export default function WorkoutSessionLogger() {
     const { sessionId } = useParams();
     const { getSession, saveSession } = useStorage();
-    const [session, setSession] = useState({})
+    const [session, setSession] = useState({ exercises: [] })
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -21,8 +21,7 @@ export default function WorkoutSessionLogger() {
         <Container>
             <SplitSelectorDialog open={open} onClose={() => setOpen(false)} onSelectWorkout={(workout) => {
                 setOpen(false)
-                console.log('selected workout', workout)
-
+                session.exercises.push(...workout.exercises)
             }} />
             <Button onClick={() => {
 
@@ -33,6 +32,9 @@ export default function WorkoutSessionLogger() {
                 session.finishDate = Date.now()
                 saveSession(session)
             }}>End session</Button>
+            {session.exercises.map((exercise, index) => {
+                return <div key={index}>{exercise.movement.name}</div>
+            })}
             <GoBackButton />
         </Container>
     );
