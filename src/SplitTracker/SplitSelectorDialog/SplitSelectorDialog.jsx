@@ -1,9 +1,9 @@
 import { Dialog, DialogContent, DialogTitle, List } from "@mui/material";
 
 import SplitListItem from './SplitListItem';
-import useStorage from "../utils/useStorage";
+import useStorage from "../../utils/useStorage";
 
-export default function SplitSelectorDialog({ open, onClose }) {
+export default function SplitSelectorDialog({ open, onClose, onSelectWorkout }) {
     const { getSplits } = useStorage();
     const splits = getSplits();
 
@@ -13,7 +13,7 @@ export default function SplitSelectorDialog({ open, onClose }) {
             <DialogContent>
                 <List>
                     {Object.entries(splits).map(([id, split]) => (
-                        <SplitListItem key={id} id={id} split={split} />
+                        <SplitListItem key={id} id={id} split={split} onSelectWorkout={onSelectWorkout} />
                     ))}
                 </List>
             </DialogContent>

@@ -2,7 +2,7 @@ import { Button, Container } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import GoBackButton from "../GoBackButton";
-import SplitSelectorDialog from "./SplitSelectorDialog";
+import SplitSelectorDialog from "./SplitSelectorDialog/SplitSelectorDialog";
 import { useParams } from "react-router-dom";
 import useStorage from "../utils/useStorage";
 
@@ -14,13 +14,16 @@ export default function WorkoutSessionLogger() {
 
     useEffect(() => {
         setSession(getSession(sessionId))
-        console.log(sessionId)
     }, [sessionId, getSession])
 
 
     return (
         <Container>
-            <SplitSelectorDialog open={open} onClose={() => setOpen(false)} />
+            <SplitSelectorDialog open={open} onClose={() => setOpen(false)} onSelectWorkout={(workout) => {
+                setOpen(false)
+                console.log('selected workout', workout)
+
+            }} />
             <Button onClick={() => {
 
                 setOpen(true)

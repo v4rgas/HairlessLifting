@@ -15,9 +15,12 @@ import ReactDOM from 'react-dom/client'
 import SavedSplits from './SavedSplits/SavedSplits.jsx';
 import Settings from './Settings/Settings.jsx';
 import SplitCreator from './SplitCreator/SplitCreator.jsx';
-import SplitTracker from './SplitTracker/SplitTracker.jsx';
+import SplitTracker from './SplitTracker/SplitSelectorDialog/SplitTracker.jsx';
 import SplitViewer from './SplitViewer.jsx/SplitViewer.jsx';
 import WorkoutSessionLogger from './SplitTracker/WorkoutSessionLogger.jsx';
+
+// import SplitTracker from './SplitTracker/SplitTracker.jsx';
+
 
 const router = createBrowserRouter([
   {

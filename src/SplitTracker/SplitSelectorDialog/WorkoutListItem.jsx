@@ -7,7 +7,7 @@ import { Upload } from "@mui/icons-material";
 import UploadIcon from '@mui/icons-material/Upload';
 import { useState } from 'react';
 
-export default function WorkoutListItem({ splitId, workout }) {
+export default function WorkoutListItem({ splitId, workout, onSelect }) {
     const [expanded, setExpanded] = useState(false);
 
     console.log(workout)
@@ -20,7 +20,7 @@ export default function WorkoutListItem({ splitId, workout }) {
         <>
             <Divider />
             <ListItem secondaryAction={
-                <IconButton >
+                <IconButton onClick={() => onSelect(workout)} >
                     <KeyboardArrowRightIcon />
                 </IconButton>
             }>

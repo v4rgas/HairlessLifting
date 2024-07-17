@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import DeleteButton from '../../DeleteButton';
 import ExerciseSelectionTableRow from './ExerciseSelectionTableRow'
+import { v4 as uuidv4 } from 'uuid';
 
 function ExerciseSelectionTable({ name, onSelectionChange, defaultExercises = [], onDelete }) {
   const [exercises, setExercises] = useState(defaultExercises)
@@ -56,7 +57,7 @@ function ExerciseSelectionTable({ name, onSelectionChange, defaultExercises = []
           />)}
         </TableBody>
       </Table>
-      <Button variant='text' fullWidth onClick={() => { setExercises(exercises => [...exercises, { id: Date.now() }]) }}>Add exercise</Button>
+      <Button variant='text' fullWidth onClick={() => { setExercises(exercises => [...exercises, { id: uuidv4() }]) }}>Add exercise</Button>
     </TableContainer >
   )
 }

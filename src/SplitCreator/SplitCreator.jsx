@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import ExerciseSelectionTable from "./WorkoutSelectionTable/ExerciseSelectionTable"
 import splitNames from "../assets/funnySplitNames.json"
 import useStorage from "../utils/useStorage"
+import { v4 as uuidv4 } from 'uuid';
 
 export default function SplitCreator() {
     const location = useLocation()
@@ -55,7 +56,7 @@ export default function SplitCreator() {
 
                 <Button variant='contained' fullWidth onClick={() => {
                     console.log("initial split", initialSplit.id, workouts)
-                    saveSplit({ id: initialSplit.id || Date.now(), splitName, workouts: workouts })
+                    saveSplit({ id: initialSplit.id || uuidv4(), splitName, workouts: workouts })
                     navigate("/saved")
                 }}>
                     Save split
