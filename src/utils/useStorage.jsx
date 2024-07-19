@@ -34,7 +34,7 @@ export default function useStorage() {
 
         createSession: () => {
             const newWorkoutSessions = cloneWorkoutSessions()
-            const newSessionId = dayjs().format('YYYY-MM-DD HH:mm:ss SSS')
+            const newSessionId = dayjs().format()
             newWorkoutSessions[newSessionId] = {
                 id: newSessionId,
                 exercises: []

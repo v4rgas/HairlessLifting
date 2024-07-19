@@ -1,6 +1,7 @@
 import { Button, Container, Stack, Typography } from "@mui/material";
 
 import GoBackButton from "../GoBackButton";
+import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useStorage from "../utils/useStorage";
@@ -12,6 +13,7 @@ export default function SplitTracker() {
 
     console.log(sessions)
 
+    const parseSessionId = (sessionId) => dayjs(sessionId).format('DD/MM/YYYY HH:mm');
     return (
         <Container>
             <Stack spacing={5}>
@@ -19,7 +21,7 @@ export default function SplitTracker() {
                 {Object.values(sessions).filter(session => !session.finishDate).map((session) => {
                     return <Button variant="contained" color="secondary" key={session.id}
                         onClick={() => navigate(`/tracker/${session.id}`)}>
-                        Session {session.id}
+                        Session {parseSessionId(session.id)}
                     </Button>
                 })}
                 <Button variant="contained" onClick={() => {
@@ -31,7 +33,7 @@ export default function SplitTracker() {
                 {Object.values(sessions).filter(session => session.finishDate).map((session) => {
                     return <Button variant="contained" color="secondary" key={session.id}
                         onClick={() => navigate(`/tracker/${session.id}`)}>
-                        Session {session.id}
+                        Session {parseSessionId(session.id)}
                     </Button>
                 })}
                 <GoBackButton />

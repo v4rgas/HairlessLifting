@@ -6,6 +6,7 @@ import ExerciseSelectorDialog from "./ExerciseSelectorDialog/ExerciseSelectorDia
 import ExerciseStatsTable from "./ExerciseStatsTable";
 import GoBackButton from "../GoBackButton";
 import SplitSelectorDialog from "./SplitSelectorDialog/SplitSelectorDialog";
+import dayjs from "dayjs";
 import useStorage from "../utils/useStorage";
 
 export default function WorkoutSessionLogger() {
@@ -79,7 +80,7 @@ export default function WorkoutSessionLogger() {
 
                 <Grid item xs={3}>
                     <Button fullWidth onClick={() => {
-                        session.finishDate = Date.now()
+                        session.finishDate = dayjs().format()
                         saveSession(session)
                         navigate('/tracker')
                     }}>End session</Button>
