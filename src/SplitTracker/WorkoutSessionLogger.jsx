@@ -44,14 +44,18 @@ export default function WorkoutSessionLogger() {
 
             <SplitSelectorDialog open={open} onClose={() => setOpen(false)} onSelectWorkout={(workout) => {
                 setOpen(false)
-                session.exercises.push(...workout.exercises)
+                const excercisesToAdd = workout.exercises.filter(exercise => !session.exercises.find(e => e.id === exercise.id))
+                session.exercises.push(...excercisesToAdd)
                 setSessionAndSave({ ...session })
             }} />
 
             <ExerciseSelectorDialog open={openExerciseSelector} onClose={() => setOpenExerciseSelector(false)} onSelectExercise={(exercise) => {
                 setOpenExerciseSelector(false)
-                session.exercises.push(exercise)
-                setSessionAndSave({ ...session })
+                if (!session.exercises.find(e => e.id === exercise.id)) {
+                    session.exercises.push(exercise)
+                    setSessionAndSave({ ...session })
+                }
+
             }
             } />
 
@@ -67,6 +71,7 @@ export default function WorkoutSessionLogger() {
                                 onSetsUpdate={(sets) => {
                                     console.log('setting sets')
                                     session.exercises[index].sets = sets
+                                    console.log(session)
                                     setSessionAndSave({ ...session })
                                 }}
                                 onLastSetRemove={() => {

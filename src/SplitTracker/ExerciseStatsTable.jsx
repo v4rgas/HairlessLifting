@@ -1,7 +1,8 @@
-import { Divider, IconButton, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { Divider, IconButton, Paper, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import AddIcon from '@mui/icons-material/Add';
+import PlayVideoButton from "../PlayVideoButton";
 import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUpdate, sets }) {
@@ -18,8 +19,8 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
         <TableContainer component={Paper}>
             <Stack direction="row" spacing={2} justifyContent={"space-evenly"}>
                 <Typography variant="h5" sx={{ p: 1, flexGrow: 1 }}>{exercise?.movement.name}</Typography>
-
-                <IconButton onClick={() => onSetsUpdate([...sets, { reps: 0, weight: 0 }])}>
+                <PlayVideoButton videoUrl={exercise?.movement.link} />
+                <IconButton onClick={() => onSetsUpdate([...sets, { reps: 0, weight: 0, rir: 0 }])}>
                     <AddIcon />
                 </IconButton>
                 <IconButton onClick={removeLastSet}>
@@ -36,6 +37,9 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                         </TableCell>
                         <TableCell align="center">
                             <Typography variant="h6">Weight (kg)</Typography>
+                        </TableCell>
+                        <TableCell align="center">
+                            <Typography variant="h6">RIR</Typography>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -63,6 +67,17 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.weight}
+                                    />
+                                </TableCell>
+                                <TableCell align="center">
+                                    <TextField fullWidth type="number" inputProps={{ min: 0 }} variant="outlined"
+                                        onChange={
+                                            (e) => {
+                                                const newSets = [...sets]
+                                                newSets[index].rir = e.target.value
+                                                onSetsUpdate(newSets)
+                                            }}
+                                        value={set.rir}
                                     />
                                 </TableCell>
                             </TableRow>
