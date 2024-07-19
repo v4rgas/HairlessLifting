@@ -432,4 +432,193 @@ export const allPink = {
     }
 }
 
-export default [dracula, solarized, nord, materialOcean, monokai, gruvbox, allPink]
+export const allBlue = {
+    name: 'All Blue',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#1e90ff', // Dodger blue
+        },
+        secondary: {
+            main: '#00bfff', // Deep sky blue
+        },
+        background: {
+            default: '#001f3f', // Dark blue background
+            paper: '#00274d', // Darker blue paper
+        },
+        text: {
+            primary: '#add8e6', // Light blue text
+            secondary: '#87cefa', // Sky blue text for secondary
+        },
+        error: {
+            main: '#1e90ff', // Dodger blue
+        },
+        warning: {
+            main: '#00bfff', // Deep sky blue
+        },
+        info: {
+            main: '#4682b4', // Steel blue
+        },
+        success: {
+            main: '#5f9ea0', // Cadet blue
+        },
+    },
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#1e90ff', // Dodger blue
+        },
+        secondary: {
+            main: '#00bfff', // Deep sky blue
+        },
+        background: {
+            default: '#e6f7ff', // Very light blue background
+            paper: '#f0f8ff', // Light blue paper
+        },
+        text: {
+            primary: '#001f3f', // Dark blue text
+            secondary: '#00274d', // Darker blue text for secondary
+        },
+        error: {
+            main: '#1e90ff', // Dodger blue
+        },
+        warning: {
+            main: '#00bfff', // Deep sky blue
+        },
+        info: {
+            main: '#4682b4', // Steel blue
+        },
+        success: {
+            main: '#5f9ea0', // Cadet blue
+        },
+    }
+}
+
+export const amoled = {
+    name: 'AMOLED',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#ffffff', // White
+        },
+        secondary: {
+            main: '#808080', // Gray
+        },
+        background: {
+            default: '#000000', // Pure black background
+            paper: '#0a0a0a', // Almost black paper
+        },
+        text: {
+            primary: '#ffffff', // White text
+            secondary: '#d3d3d3', // Lighter gray text for better contrast
+        },
+        error: {
+            main: '#ff0000', // Red
+        },
+        warning: {
+            main: '#ff0000', // Red warning
+        },
+        info: {
+            main: '#00ffff', // Cyan
+        },
+        success: {
+            main: '#00ff00', // Lime
+        },
+    },
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#000000', // Black
+        },
+        secondary: {
+            main: '#404040', // Dark gray
+        },
+        background: {
+            default: '#ffffff', // White background
+            paper: '#f2f2f2', // Light gray paper
+        },
+        text: {
+            primary: '#000000', // Black text
+            secondary: '#0a0a0a', // Almost black text for secondary
+        },
+        error: {
+            main: '#ff0000', // Red
+        },
+        warning: {
+            main: '#ff0000', // Red warning
+        },
+        info: {
+            main: '#00ffff', // Cyan
+        },
+        success: {
+            main: '#00ff00', // Lime
+        },
+    }
+}
+
+export const allRed = {
+    name: 'All Red',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#ff4500', // Orange red
+        },
+        secondary: {
+            main: '#ff6347', // Tomato
+        },
+        background: {
+            default: '#330000', // Dark red background
+            paper: '#4d0000', // Darker red paper
+        },
+        text: {
+            primary: '#ffcccb', // Light red text
+            secondary: '#ff9999', // Pale red text for secondary
+        },
+        error: {
+            main: '#ff4500', // Orange red
+        },
+        warning: {
+            main: '#ff0000', // Red warning
+        },
+        info: {
+            main: '#ff7f7f', // Light red
+        },
+        success: {
+            main: '#ff6347', // Tomato
+        },
+    },
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#ff4500', // Orange red
+        },
+        secondary: {
+            main: '#ff6347', // Tomato
+        },
+        background: {
+            default: '#ffebeb', // Very light red background
+            paper: '#ffe6e6', // Light red paper
+        },
+        text: {
+            primary: '#330000', // Dark red text
+            secondary: '#4d0000', // Darker red text for secondary
+        },
+        error: {
+            main: '#ff4500', // Orange red
+        },
+        warning: {
+            main: '#ff0000', // Red warning
+        },
+        info: {
+            main: '#ff7f7f', // Light red
+        },
+        success: {
+            main: '#ff6347', // Tomato
+        },
+    }
+}
+
+
+
+
+export default [dracula, solarized, nord, materialOcean, monokai, gruvbox, allPink, allBlue, amoled, allRed]
