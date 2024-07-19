@@ -370,4 +370,66 @@ export const gruvbox = {
     }
 }
 
-export default [dracula, solarized, nord, materialOcean, monokai, gruvbox]
+export const allPink = {
+    name: 'All Pink',
+    dark: {
+        mode: 'dark',
+        primary: {
+            main: '#ff69b4', // Hot pink
+        },
+        secondary: {
+            main: '#ff1493', // Deep pink
+        },
+        background: {
+            default: '#4a0033', // Dark pink background
+            paper: '#660033', // Darker pink paper
+        },
+        text: {
+            primary: '#ffc0cb', // Light pink text
+            secondary: '#ffb6c1', // Light pink text for secondary
+        },
+        error: {
+            main: '#ff004f', // Error pink
+        },
+        warning: {
+            main: '#ff66a3', // Warning pink
+        },
+        info: {
+            main: '#ff80bf', // Info pink
+        },
+        success: {
+            main: '#ff99cc', // Success pink
+        },
+    },
+    light: {
+        mode: 'light',
+        primary: {
+            main: '#ff69b4', // Hot pink
+        },
+        secondary: {
+            main: '#ff1493', // Deep pink
+        },
+        background: {
+            default: '#ffe4e1', // Very light pink background
+            paper: '#fff0f5', // Light pink paper
+        },
+        text: {
+            primary: '#4a0033', // Dark pink text
+            secondary: '#660033', // Darker pink text for secondary
+        },
+        error: {
+            main: '#ff004f', // Error pink
+        },
+        warning: {
+            main: '#ff66a3', // Warning pink
+        },
+        info: {
+            main: '#ff80bf', // Info pink
+        },
+        success: {
+            main: '#ff99cc', // Success pink
+        },
+    }
+}
+
+export default [dracula, solarized, nord, materialOcean, monokai, gruvbox, allPink]
