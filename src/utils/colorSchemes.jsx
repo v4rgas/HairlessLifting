@@ -528,7 +528,7 @@ export const amoled = {
     light: {
         mode: 'light',
         primary: {
-            main: '#000000', // Black
+            main: '#ffffff', // Black
         },
         secondary: {
             main: '#404040', // Dark gray
