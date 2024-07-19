@@ -55,6 +55,12 @@ export default function useStorage() {
 
         getSessions: () => {
             return workoutSessions
+        },
+
+        deleteSession: (sessionId) => {
+            const newWorkoutSessions = cloneWorkoutSessions()
+            delete newWorkoutSessions[sessionId]
+            setWorkoutSessions(newWorkoutSessions)
         }
     }
 }
