@@ -1,6 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 
 import DeleteIcon from '@mui/icons-material/Delete';
+import DeletionDialog from './DeletionDialog';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
 
@@ -17,18 +18,7 @@ export default function DeleteButton({ onClick = () => { }, sx = {} }) {
             <IconButton onClick={() => setOpen(true)} sx={sx}>
                 <DeleteIcon />
             </IconButton>
-            <Dialog open={open} onClose={() => setOpen(false)}>
-                <DialogTitle>Confirm Deletion</DialogTitle>
-                <DialogContent>
-                    Are you sure you want to delete this item?
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button onClick={handleDelete} autoFocus>
-                        Delete
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <DeletionDialog open={open} onClose={() => setOpen(false)} onConfirm={handleDelete} content={"Are you sure you want to delete this item?"} />
         </>
     );
 }
