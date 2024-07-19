@@ -29,9 +29,6 @@ export default function SplitCreator() {
     }
     return (
         <Container sx={{ py: 5 }}>
-
-
-
             <Stack spacing={5}>
                 <TextField value={splitName} onChange={(e) => setSplitName(e.target.value)} fullWidth></TextField>
 

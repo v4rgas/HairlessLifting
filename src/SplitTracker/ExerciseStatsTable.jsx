@@ -1,4 +1,4 @@
-import { Divider, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { Divider, IconButton, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import AddIcon from '@mui/icons-material/Add';
@@ -16,15 +16,19 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
     }
     return (
         <TableContainer component={Paper}>
-            <Typography variant="h5" sx={{ p: 1, textAlign: "center" }}>{exercise?.movement.name}</Typography>
-            <IconButton onClick={() => onSetsUpdate([...sets, { reps: 0, weight: 0 }])}>
-                <AddIcon />
-            </IconButton>
-            <IconButton onClick={removeLastSet}>
-                <RemoveIcon />
-            </IconButton>
+            <Stack direction="row" spacing={2} justifyContent={"space-evenly"}>
+                <Typography variant="h5" sx={{ p: 1, flexGrow: 1 }}>{exercise?.movement.name}</Typography>
+
+                <IconButton onClick={() => onSetsUpdate([...sets, { reps: 0, weight: 0 }])}>
+                    <AddIcon />
+                </IconButton>
+                <IconButton onClick={removeLastSet}>
+                    <RemoveIcon />
+                </IconButton>
+
+            </Stack>
             <Divider />
-            <Table>
+            <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell align="center">

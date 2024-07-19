@@ -16,17 +16,6 @@ export default function SavedSplits() {
     return (
 
         <Container>
-            {/* <Typography variant="h3">
-                Saved splits
-            </Typography>
-            <List component={Paper} elevation={5} sx={{ width: 300 }}>
-                {Object.values(splits).map((split) =>
-                    <ListItemButton key={split.id} onClick={() => navigate("/split/" + split.id)}>
-                        <ListItemText primary={split.splitName} />
-                    </ListItemButton>
-                )
-                }
-            </List> */}
             <Stack spacing={5}>
                 <Typography variant="h3">
                     Saved splits

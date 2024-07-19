@@ -37,7 +37,7 @@ export default function WorkoutListItem({ splitId, workout, onSelect }) {
 
             <Collapse in={expanded} unmountOnExit>
                 <List sx={{ pl: 4 }}>
-                    {workout.exercises.map((exercise) => (
+                    {workout?.exercises?.map((exercise) => (
                         <ListItem key={exercise.id}>
                             {exercise.movement.name}
                         </ListItem>
