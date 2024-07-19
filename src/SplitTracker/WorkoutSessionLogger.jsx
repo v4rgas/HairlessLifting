@@ -20,6 +20,10 @@ export default function WorkoutSessionLogger() {
             setSession(getSession(sessionId))
     }, [sessionId, getSession])
 
+    const setSessionAndSave = (session) => {
+        setSession(session)
+        saveSession(session)
+    }
 
     return (
         <Container>
@@ -42,11 +46,18 @@ export default function WorkoutSessionLogger() {
                 {session.exercises.map((exercise, index) => {
                     return (
                         <Grid item xs={12} key={index}>
-                            <ExerciseStatsTable key={index} exercise={exercise} onLastSetRemove={() => {
-                                console.log('removing exercise')
-                                session.exercises = session.exercises.filter((_, i) => i !== index)
-                                setSession({ ...session })
-                            }} />
+                            <ExerciseStatsTable key={index} exercise={exercise}
+                                sets={exercise.sets || []}
+                                onSetsUpdate={(sets) => {
+                                    console.log('setting sets')
+                                    session.exercises[index].sets = sets
+                                    setSessionAndSave({ ...session })
+                                }}
+                                onLastSetRemove={() => {
+                                    console.log('removing exercise')
+                                    session.exercises = session.exercises.filter((_, i) => i !== index)
+                                    setSessionAndSave({ ...session })
+                                }} />
                         </Grid>
                     )
                 })}
