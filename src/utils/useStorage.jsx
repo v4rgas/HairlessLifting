@@ -1,6 +1,8 @@
 import { atom, useAtom, useAtomValue } from "jotai"
 import { splitsAtom, workoutSessionsAtom } from "./atoms"
 
+import dayjs from "dayjs"
+
 export default function useStorage() {
     const [splits, setSplits] = useAtom(splitsAtom)
     const [workoutSessions, setWorkoutSessions] = useAtom(workoutSessionsAtom)
@@ -32,7 +34,7 @@ export default function useStorage() {
 
         createSession: () => {
             const newWorkoutSessions = cloneWorkoutSessions()
-            const newSessionId = Date.now()
+            const newSessionId = dayjs().format('YYYY-MM-DD HH:mm:ss SSS')
             newWorkoutSessions[newSessionId] = {
                 id: newSessionId,
                 exercises: []

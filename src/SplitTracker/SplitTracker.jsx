@@ -1,9 +1,9 @@
 import { Button, Container, Stack, Typography } from "@mui/material";
 
-import GoBackButton from "../../GoBackButton";
+import GoBackButton from "../GoBackButton";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import useStorage from "../../utils/useStorage";
+import useStorage from "../utils/useStorage";
 
 export default function SplitTracker() {
     const { createSession, getSessions } = useStorage();
