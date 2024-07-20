@@ -36,7 +36,7 @@ export default function WorkoutSessionLogger() {
             <DeletionDialog open={openDeletionDialog} onConfirm={() => {
                 deleteSession(sessionId)
                 navigate('/tracker')
-            }} onCancel={() => {
+            }} onClose={() => {
                 setOpenDeletionDialog(false)
             }}
                 content={"Are you sure you want to delete this session?"}
