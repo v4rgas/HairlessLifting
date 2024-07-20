@@ -44,14 +44,16 @@ export default function WorkoutSessionLogger() {
 
             <SplitSelectorDialog open={open} onClose={() => setOpen(false)} onSelectWorkout={(workout) => {
                 setOpen(false)
-                const excercisesToAdd = workout.exercises.filter(exercise => !session.exercises.find(e => e.id === exercise.id))
+
+                const excercisesToAdd = workout.exercises.filter(exercise => !session.exercises.find(e => e.movement.name === exercise.movement.name))
+                console.log('toadd', excercisesToAdd)
                 session.exercises.push(...excercisesToAdd)
                 setSessionAndSave({ ...session })
             }} />
 
             <ExerciseSelectorDialog open={openExerciseSelector} onClose={() => setOpenExerciseSelector(false)} onSelectExercise={(exercise) => {
                 setOpenExerciseSelector(false)
-                if (!session.exercises.find(e => e.id === exercise.id)) {
+                if (!session.exercises.find(e => e.movement.name === exercise.movement.name)) {
                     session.exercises.push(exercise)
                     setSessionAndSave({ ...session })
                 }
