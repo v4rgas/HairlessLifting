@@ -1,0 +1,219 @@
+{
+    "id": "04d2d996-119d-4410-81ea-9a6f7c82ffd8",
+    "splitName": "Push Pull Legs",
+    "workouts": [
+        {
+            "id": "A",
+            "workouts": [],
+            "exercises": [
+                {
+                    "id": "49b4403d-ca6b-49d3-8f2e-572948be0fd4",
+                    "muscle": {
+                        "id": "Chest",
+                        "name": "Chest"
+                    },
+                    "movement": {
+                        "id": 17,
+                        "name": "Incline Barbell Press Wide Grip",
+                        "muscleId": "Chest",
+                        "link": "https://www.youtube.com/watch?v=FxQ0XEoFYQk&list=PLyqKj7LwU2RuyZwWCIiDHuFZGN11QW3Ff&index=18"
+                    }
+                },
+                {
+                    "id": "89400890-4086-419f-848c-81390dbd8447",
+                    "muscle": {
+                        "id": "FrontDelts",
+                        "name": "FrontDelts"
+                    },
+                    "movement": {
+                        "id": 4,
+                        "name": "Machine Shoulder Press",
+                        "muscleId": "FrontDelts",
+                        "link": "https://www.youtube.com/watch?v=WvLMauqrnK8&list=PLyqKj7LwU2RtjiVutSXk5uC2h7KVMu1Az&index=5"
+                    }
+                },
+                {
+                    "id": "607abc68-4198-463a-8d76-8e54959a30df",
+                    "muscle": {
+                        "id": "Chest",
+                        "name": "Chest"
+                    },
+                    "movement": {
+                        "id": 6,
+                        "name": "Flat Dumbbell Flye",
+                        "muscleId": "Chest",
+                        "link": "https://www.youtube.com/watch?v=JFm8KbhjibM&list=PLyqKj7LwU2RuyZwWCIiDHuFZGN11QW3Ff&index=7"
+                    }
+                },
+                {
+                    "id": "ac71e769-92a9-47e8-86f0-f80f31fe09f4",
+                    "muscle": {
+                        "id": "SideDelts",
+                        "name": "SideDelts"
+                    },
+                    "movement": {
+                        "id": 9,
+                        "name": "Top Hold Lateral Raise",
+                        "muscleId": "SideDelts",
+                        "link": "https://www.youtube.com/watch?v=SKf8wHlIFX0&list=PLyqKj7LwU2RuNVJBl0CtfZdxQ99IhKCcu&index=10"
+                    }
+                },
+                {
+                    "id": "3f4e557f-5018-471b-9f0a-3a749fd6c14a",
+                    "muscle": {
+                        "id": "Triceps",
+                        "name": "Triceps"
+                    },
+                    "movement": {
+                        "id": 3,
+                        "name": "Cable Overhead Triceps Extension",
+                        "muscleId": "Triceps",
+                        "link": "https://www.youtube.com/watch?v=1u18yJELsh0&list=PLyqKj7LwU2RtMd8vP3NEoig1RPJQK78Ea&index=4"
+                    }
+                },
+                {
+                    "id": "017db44b-f91f-4665-ab75-516a38923582",
+                    "muscle": {
+                        "id": "Triceps",
+                        "name": "Triceps"
+                    },
+                    "movement": {
+                        "id": 6,
+                        "name": "Dip",
+                        "muscleId": "Triceps",
+                        "link": "https://www.youtube.com/watch?v=4LA1kF7yCGo&list=PLyqKj7LwU2RtMd8vP3NEoig1RPJQK78Ea&index=7"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "B",
+            "workouts": [],
+            "exercises": [
+                {
+                    "id": "6b39af42-73fa-4006-8443-b7f0e677ec67",
+                    "muscle": {
+                        "id": "Back",
+                        "name": "Back"
+                    },
+                    "movement": {
+                        "id": 25,
+                        "name": "Parallel Pulldown",
+                        "muscleId": "Back",
+                        "link": "https://youtu.be/--utaPT7XYQ"
+                    }
+                },
+                {
+                    "id": "7b03844c-3257-4961-ba1c-293a5ff924d3",
+                    "muscle": {
+                        "id": "Back",
+                        "name": "Back"
+                    },
+                    "movement": {
+                        "id": 5,
+                        "name": "Chest Supported Row",
+                        "muscleId": "Back",
+                        "link": "https://youtu.be/0UBRfiO4zDs"
+                    }
+                },
+                {
+                    "id": "e4b75e5a-d1b6-451f-8d93-f68dabfcef86",
+                    "muscle": {
+                        "id": "Back",
+                        "name": "Back"
+                    },
+                    "movement": {
+                        "id": 29,
+                        "name": "Dumbbell Pullover",
+                        "muscleId": "Back",
+                        "link": "https://youtu.be/jQjWlIwG4sI"
+                    }
+                },
+                {
+                    "id": "f21e6d21-97e2-41c7-a822-9adb4a04700d",
+                    "muscle": {
+                        "id": "Biceps",
+                        "name": "Biceps"
+                    },
+                    "movement": {
+                        "id": 9,
+                        "name": "EZ Bar Curl Wide Grip",
+                        "muscleId": "Biceps",
+                        "link": "https://www.youtube.com/watch?v=EK747VC37yE&list=PLyqKj7LwU2Rt1cwOsHwdXa2TiRzjA6uoB&index=10"
+                    }
+                },
+                {
+                    "id": "c7e40872-d83a-4187-8df1-708efe27ea2b",
+                    "muscle": {
+                        "id": "Biceps",
+                        "name": "Biceps"
+                    },
+                    "movement": {
+                        "id": 13,
+                        "name": "Incline Dumbbell Curl",
+                        "muscleId": "Biceps",
+                        "link": "https://www.youtube.com/watch?v=aTYlqC_JacQ&list=PLyqKj7LwU2Rt1cwOsHwdXa2TiRzjA6uoB&index=14"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "C",
+            "workouts": [],
+            "exercises": [
+                {
+                    "id": "0206addf-19af-4d95-ad3a-c40de369fa66",
+                    "muscle": {
+                        "id": "Quads",
+                        "name": "Quads"
+                    },
+                    "movement": {
+                        "id": 0,
+                        "name": "Feet Forward Smith Squat",
+                        "muscleId": "Quads",
+                        "link": "https://www.youtube.com/watch?v=-eO_VydErV0&list=PLyqKj7LwU2RuAg-us4mzap6izNcc1fuRW&index=1"
+                    }
+                },
+                {
+                    "id": "70ad4a43-b362-4ed3-8ff5-b9a50fe7f072",
+                    "muscle": {
+                        "id": "Hamstrings",
+                        "name": "Hamstrings"
+                    },
+                    "movement": {
+                        "id": 8,
+                        "name": "Stiff Legged Deadlift",
+                        "muscleId": "Hamstrings",
+                        "link": "https://www.youtube.com/watch?v=CN_7cz3P-1U&list=PLyqKj7LwU2Rvx_O313dzJNFKPiEqRMWiV&index=9"
+                    }
+                },
+                {
+                    "id": "73cd6c94-87b8-4a90-9c4b-9bbf0c28d57d",
+                    "muscle": {
+                        "id": "Quads",
+                        "name": "Quads"
+                    },
+                    "movement": {
+                        "id": 6,
+                        "name": "Leg Press",
+                        "muscleId": "Quads",
+                        "link": "https://www.youtube.com/watch?v=yZmx_Ac3880&list=PLyqKj7LwU2RuAg-us4mzap6izNcc1fuRW&index=7"
+                    }
+                },
+                {
+                    "id": "0f1bfe44-9a5a-4c59-9fab-6cb976f64c18",
+                    "muscle": {
+                        "id": "Hamstrings",
+                        "name": "Hamstrings"
+                    },
+                    "movement": {
+                        "id": 2,
+                        "name": "Glute Ham Raise",
+                        "muscleId": "Hamstrings",
+                        "link": "https://www.youtube.com/watch?v=SBGYSfoqyfU&list=PLyqKj7LwU2Rvx_O313dzJNFKPiEqRMWiV&index=3"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -12,6 +12,7 @@ export default function SplitViewer() {
 
     const { getSplits, deleteSplit } = useStorage();
     const split = getSplits()[splitId];
+    console.log(split)
 
     const navigate = useNavigate()
 

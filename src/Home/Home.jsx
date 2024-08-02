@@ -25,18 +25,23 @@ export default function Home() {
                         label="Split"
                         onChange={(e) => {
                             setSplit(e.target.value)
+                            console.log(e.target.value)
                         }}>
-                        {splits.map(split => <MenuItem key={split.id} value={split}>{split.name}</MenuItem>)}
+                        <MenuItem key="empty" value={''}>New Split</MenuItem>
+                        {splits.map(split => <MenuItem key={split.id} value={split}>{split.splitName}</MenuItem>)}
                     </Select>
 
                 </FormControl>
 
-                <Button variant="contained" color="secondary" fullWidth onClick={() => navigate('/create')}>Create split from template</Button>
-                <Button variant="contained" fullWidth onClick={() => navigate('/create')}>Create a split from scratch</Button>
+                <Button variant="contained" color="primary" fullWidth
+                    onClick={() => navigate('/create', { state: { initialSplit: split } })} >
+                    Create split
+                </Button>
+
 
 
 
             </Stack>
-        </Container>
+        </Container >
     )
 } 
