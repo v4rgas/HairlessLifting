@@ -24,6 +24,7 @@ import WorkoutSessionLogger from './SplitTracker/WorkoutSessionLogger.jsx';
 
 
 const router = createBrowserRouter([
+
   {
 
     element: <App />,
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
 
     ]
   },
-]);
+], { basename: '/pelao-rqlo' });
 
 
 
