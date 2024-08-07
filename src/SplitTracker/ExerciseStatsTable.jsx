@@ -4,9 +4,18 @@ import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import PlayVideoButton from "../PlayVideoButton";
 import RemoveIcon from '@mui/icons-material/Remove';
+import useBackendApi from "../utils/useBackendApi";
 
 export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUpdate, sets }) {
     // const [sets, setSets] = useState([])
+    const { getLatestSetsOfExercise } = useBackendApi()
+    const [latestSets, setLatestSets] = useState([])
+    useEffect(() => {
+        if (exercise)
+            getLatestSetsOfExercise(exercise.movement.id).then((latestSets) => {
+                setLatestSets(latestSets)
+            })
+    }, [exercise])
 
     const removeLastSet = () => {
         if (sets.length === 0)
@@ -55,7 +64,10 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                             onSetsUpdate(newSets)
                                         }
                                     }
-                                        value={set.reps} />
+                                        value={set.reps}
+                                        label={"Latest reps: " + latestSets[index]?.reps || 0}
+                                    />
+
 
                                 </TableCell>
                                 <TableCell align="center">
@@ -67,6 +79,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.weight}
+                                        label={"Latest weight: " + latestSets[index]?.weight || 0}
                                     />
                                 </TableCell>
                                 <TableCell align="center">
@@ -78,6 +91,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.rir}
+                                        label={"Latest RIR: " + latestSets[index]?.rir || 0}
                                     />
                                 </TableCell>
                             </TableRow>

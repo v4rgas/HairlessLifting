@@ -1,7 +1,11 @@
 import exercises from '../assets/exercises.json'
 import ppl from '../assets/ppl.json'
+import { useAtomValue } from 'jotai'
+import { workoutSessionsAtom } from './atoms'
 
 export default function useBackendApi() {
+
+    const workouts = useAtomValue(workoutSessionsAtom)
 
     return {
         getMuscles: async () => {
@@ -29,6 +33,12 @@ export default function useBackendApi() {
         },
         getSplits: async () => {
             return [ppl]
-        }
+        },
+        getLatestSetsOfExercise: async (exerciseId) => {
+            return Object.values(workouts).reduce((acc, workout) => {
+                return acc.concat(workout.exercises.find(exercise => exercise.movement.id === exerciseId)?.sets || [])
+            }
+                , [])
+        },
     }
 }
