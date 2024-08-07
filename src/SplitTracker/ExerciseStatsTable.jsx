@@ -65,7 +65,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                         }
                                     }
                                         value={set.reps}
-                                        label={`Latest reps: ${latestSets[index]?.reps || 0}`}
+                                        label={`Last recorded reps: ${latestSets[index]?.reps || 0}`}
                                     />
 
 
@@ -79,7 +79,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.weight}
-                                        label={`Latest weight: ${latestSets[index]?.weight || 0}`}
+                                        label={`Last recorded weight: ${latestSets[index]?.weight || 0}`}
                                     />
                                 </TableCell>
                                 <TableCell align="center">
@@ -91,7 +91,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.rir}
-                                        label={`Latest rir: ${latestSets[index]?.rir || 0}`}
+                                        label={`Last recorded RIR: ${latestSets[index]?.rir || 0}`}
                                     />
                                 </TableCell>
                             </TableRow>
