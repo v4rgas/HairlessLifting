@@ -1,44 +1,48 @@
-import exercises from '../assets/exercises.json'
-import ppl from '../assets/ppl.json'
-import { useAtomValue } from 'jotai'
-import { workoutSessionsAtom } from './atoms'
+import dayjs from "dayjs";
+import exercises from '../assets/exercises.json';
+import ppl from '../assets/ppl.json';
+import { useAtomValue } from 'jotai';
+import { workoutSessionsAtom } from './atoms';
 
 export default function useBackendApi() {
 
-    const workouts = useAtomValue(workoutSessionsAtom)
+    const workouts = useAtomValue(workoutSessionsAtom);
+
+    const mapMuscles = () => Object.keys(exercises).map(muscle => ({ id: muscle, name: muscle }));
+
+    const mapMovements = (muscleId) => {
+        const movements = exercises[muscleId] || [];
+        return movements.map(({ name, link }, index) => ({ id: index, name, muscleId, link }));
+    };
+
+    const mapExercises = () => {
+        return Object.keys(exercises).reduce((acc, muscle) => {
+            const movements = exercises[muscle];
+            const mappedMovements = movements.map(({ name, link }, index) => ({
+                muscle: { name: muscle, id: muscle },
+                movement: { name, id: index, muscleId: muscle, link }
+            }));
+            return acc.concat(mappedMovements);
+        }, []);
+    };
+
+    const sortByDate = (a, b) => dayjs(a.date).isBefore(dayjs(b.date)) ? -1 : 1;
+
+    const getLatestSets = (exerciseId) => {
+        return Object.values(workouts)
+            .sort(sortByDate)
+            .filter(session => session.finishDate)
+            .reduce((acc, session) => {
+                const sets = session.exercises.find(exercise => exercise.movement.id === exerciseId)?.sets || [];
+                return acc.concat(sets);
+            }, []);
+    };
 
     return {
-        getMuscles: async () => {
-            return Object.keys(exercises).map((muscle, index) => {
-                return { id: muscle, name: muscle }
-            })
-
-        },
-        getMovements: async (muscleId) => {
-            if (!exercises[muscleId]) {
-                console.error(`No movements found for muscleId: ${muscleId}`);
-                return [];
-            }
-            return exercises[muscleId].map(({ name, link }, index) => {
-                return { id: index, name, muscleId: muscleId, link };
-            });
-        },
-        getExercises: async () => {
-            // {muscle: {name: 'Chest', id: 'chest'}, movement: {name: 'Bench Press', id, muscleId, link}
-            return Object.keys(exercises).reduce((acc, muscle) => {
-                return acc.concat(exercises[muscle].map((movement, index) => {
-                    return { muscle: { name: muscle, id: muscle }, movement: { name: movement.name, id: index, muscleId: muscle, link: movement.link } }
-                }))
-            }, [])
-        },
-        getSplits: async () => {
-            return [ppl]
-        },
-        getLatestSetsOfExercise: async (exerciseId) => {
-            return Object.values(workouts).reduce((acc, workout) => {
-                return acc.concat(workout.exercises.find(exercise => exercise.movement.id === exerciseId)?.sets || [])
-            }
-                , [])
-        },
-    }
+        getMuscles: async () => mapMuscles(),
+        getMovements: async (muscleId) => mapMovements(muscleId),
+        getExercises: async () => mapExercises(),
+        getSplits: async () => [ppl],
+        getLatestSetsOfExercise: async (exerciseId) => getLatestSets(exerciseId),
+    };
 }

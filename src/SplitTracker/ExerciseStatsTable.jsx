@@ -29,7 +29,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
             <Stack direction="row" spacing={2} justifyContent={"space-evenly"}>
                 <Typography variant="h5" sx={{ p: 1, flexGrow: 1 }}>{exercise?.movement.name}</Typography>
                 <PlayVideoButton videoUrl={exercise?.movement.link} />
-                <IconButton onClick={() => onSetsUpdate([...sets, { reps: 0, weight: 0, rir: 0 }])}>
+                <IconButton onClick={() => onSetsUpdate([...sets, { reps: "", weight: "", rir: "" }])}>
                     <AddIcon />
                 </IconButton>
                 <IconButton onClick={removeLastSet}>
@@ -65,7 +65,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                         }
                                     }
                                         value={set.reps}
-                                        label={`Last recorded reps: ${latestSets[index]?.reps || 0}`}
+                                        placeholder={`Last recorded reps: ${latestSets[index]?.reps || 0}`}
                                     />
 
 
@@ -79,7 +79,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.weight}
-                                        label={`Last recorded weight: ${latestSets[index]?.weight || 0}`}
+                                        placeholder={`Last recorded weight: ${latestSets[index]?.weight || 0}`}
                                     />
                                 </TableCell>
                                 <TableCell align="center">
@@ -91,7 +91,7 @@ export default function ExerciseStatsTable({ exercise, onLastSetRemove, onSetsUp
                                                 onSetsUpdate(newSets)
                                             }}
                                         value={set.rir}
-                                        label={`Last recorded RIR: ${latestSets[index]?.rir || 0}`}
+                                        placeholder={`Last recorded RIR: ${latestSets[index]?.rir || 0}`}
                                     />
                                 </TableCell>
                             </TableRow>
