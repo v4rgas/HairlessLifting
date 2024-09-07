@@ -26,7 +26,7 @@ export default function useBackendApi() {
         }, []);
     };
 
-    const sortByDate = (a, b) => dayjs(a.date).isBefore(dayjs(b.date)) ? -1 : 1;
+    const sortByDate = (a, b) => dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -11;
 
     const getLatestSets = (exerciseId) => {
         return Object.values(workouts)
