@@ -12,14 +12,14 @@ export default defineConfig({
       }
     }
   },
-  base: '/pelao-rqlo',
+  base: '/HairlessLifting',
   plugins: [react(),
     VitePWA({ 
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'pelao-rqlo',
-        short_name: 'pelao-rqlo',
+        name: 'HairlessLifting',
+        short_name: 'HairlessLifting',
         theme_color: '#ffffff',
         icons: [
             {

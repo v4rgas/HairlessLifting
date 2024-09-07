@@ -31,7 +31,7 @@ export default function Navbar() {
                     </IconButton>
                 </Box>
 
-                <Typography variant="h6" noWrap flexGrow={1}>pelao-rqlo</Typography>
+                <Typography variant="h6" noWrap flexGrow={1}>HairlessLifting</Typography>
 
                 {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
                 <Switch onChange={() => setDarkMode(!darkMode)} checked={darkMode}></Switch>

@@ -64,7 +64,7 @@ const router = createBrowserRouter([
 
     ]
   },
-], { basename: '/pelao-rqlo' });
+], { basename: '/HairlessLifting' });
 
 
 
